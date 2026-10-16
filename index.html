@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keicyla Icelin - Streamer &amp; Content Creator</title>
+<meta name="description" content="Keicyla Icelin, streamer sekaligus content creator dari indonesia!.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #10152B;
+    --bg-alt: #171E3D;
+    --panel: #1B2246;
+    --accent: #5B8DEF;
+    --accent-soft: #8FD6FF;
+    --text: #EDEFF7;
+    --muted: #9AA3C7;
+    --border: rgba(143, 214, 255, 0.16);
+    --maxw: 1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Manrope', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Unbounded', sans-serif;
+    line-height:1.15;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  :focus-visible{outline:2px solid var(--accent-soft); outline-offset:3px;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(ellipse 700px 500px at 15% -5%, rgba(91,141,239,0.25), transparent 60%),
+      radial-gradient(ellipse 600px 500px at 100% 20%, rgba(143,214,255,0.10), transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  header{
+    position:sticky; top:16px; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 22px;
+    max-width:calc(var(--maxw) - 48px); margin:16px auto 0;
+    background:rgba(23,30,61,0.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--border);
+    border-radius:999px;
+    box-shadow:0 20px 40px -20px rgba(0,0,0,0.5);
+  }
+  .brand{
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand-photo{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--border);
+  }
+  .brand span{color:var(--accent-soft);}
+  nav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:0.92rem;
+    margin-left:24px;
+    transition:color .15s ease;
+  }
+  nav a:hover{color:var(--text);}
+  .nav-links{display:flex;}
+
+  .hero{
+    position:relative; z-index:1;
+    max-width:var(--maxw); margin:0 auto;
+    padding:48px 24px 96px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-copy .kicker{
+    color:var(--accent-soft);
+    font-size:0.95rem;
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .hero-copy h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    font-weight:800;
+    color:var(--text);
+  }
+  .hero-copy h1 em{
+    font-style:normal;
+    color:var(--accent-soft);
+  }
+  .hero-copy p{
+    color:var(--muted);
+    max-width:46ch;
+    margin-top:20px;
+    font-size:1.05rem;
+  }
+  .cta-row{
+    display:flex; gap:14px; flex-wrap:wrap;
+    margin-top:32px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px;
+    border-radius:8px;
+    font-weight:700;
+    font-size:0.95rem;
+    text-decoration:none;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#0A0E20;
+  }
+  .btn-primary:hover{background:var(--accent-soft); transform:translateY(-1px);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--border);
+  }
+  .btn-ghost:hover{border-color:var(--accent-soft); transform:translateY(-1px);}
+
+  .hero-video{
+    position:relative;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    box-shadow:0 0 0 1px rgba(255,255,255,0.02), 0 30px 60px -20px rgba(91,141,239,0.35);
+    aspect-ratio:16/10;
+    background:var(--panel);
+  }
+  .hero-video iframe, .hero-video video{
+    width:100%; height:100%; border:0; display:block; object-fit:cover;
+  }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:56px;
+    align-items:start;
+    margin-top:16px;
+  }
+  .about-col{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+  }
+  .about-photo{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+    box-shadow:0 30px 60px -25px rgba(91,141,239,0.35);
+  }
+  .about-photo img{width:100%; height:100%; object-fit:cover;}
+  .about-text{
+    color:var(--muted);
+    margin-top:20px;
+    font-size:0.98rem;
+    max-width:34ch;
+  }
+  .about-table{
+    width:100%;
+    border-collapse:collapse;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .about-table tr{border-top:1px solid var(--border);}
+  .about-table tr:first-child{border-top:none;}
+  .about-table th, .about-table td{
+    text-align:left;
+    padding:16px 20px;
+    font-size:0.95rem;
+  }
+  .about-table th{
+    color:var(--muted);
+    font-weight:500;
+    width:42%;
+  }
+  .about-table td{
+    color:var(--text);
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:0.92rem;
+    color:var(--accent-soft);
+  }
+
+  @media (max-width: 860px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  section.block{
+    position:relative; z-index:1;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:96px 24px;
+  }
+  .block-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom:44px;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .block-head h2{
+    font-size:clamp(1.6rem, 3vw, 2.1rem);
+    font-weight:600;
+  }
+  .block-head p{
+    color:var(--muted);
+    max-width:42ch;
+    margin:10px 0 0;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+  }
+  .tile{
+    background:var(--bg);
+    position:relative;
+    overflow:hidden;
+    text-decoration:none;
+    display:block;
+  }
+  .tile .thumb{
+    aspect-ratio:16/9;
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tile .thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .tile .thumb iframe{width:100%; height:100%; border:0; display:block;}
+  .tile .thumb .play{
+    position:relative;
+    width:52px; height:52px;
+    border-radius:50%;
+    border:1px solid rgba(237,239,247,0.35);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text);
+    transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    background:rgba(16,21,43,0.4);
+  }
+  .tile:hover .thumb .play{
+    transform:scale(1.08);
+    border-color:var(--accent-soft);
+    background:rgba(91,141,239,0.25);
+  }
+  .tile .meta{
+    padding:18px 20px 22px;
+  }
+  .tile .tag{
+    color:var(--accent-soft);
+    font-size:0.78rem;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .tile h3{
+    font-size:1.02rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .tile .sub{
+    color:var(--muted);
+    font-size:0.88rem;
+    margin-top:6px;
+  }
+
+  [data-tip]{position:relative;}
+  [data-tip]::after{
+    content:attr(data-tip);
+    position:absolute;
+    bottom:calc(100% + 14px);
+    left:50%;
+    transform:translateX(-50%) scale(0.6) translateY(6px);
+    background:var(--accent-soft);
+    color:#0A0E20;
+    padding:7px 14px;
+    border-radius:999px;
+    font-family:'Unbounded', sans-serif;
+    font-size:0.72rem;
+    font-weight:600;
+    white-space:nowrap;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .16s ease, transform .22s cubic-bezier(.34,1.56,.64,1);
+    box-shadow:0 12px 24px -10px rgba(91,141,239,0.6);
+    z-index:20;
+  }
+  [data-tip]::before{
+    content:"";
+    position:absolute;
+    bottom:calc(100% + 2px);
+    left:50%;
+    transform:translateX(-50%) scale(0.6);
+    border:6px solid transparent;
+    border-top-color:var(--accent-soft);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .16s ease, transform .22s cubic-bezier(.34,1.56,.64,1);
+    z-index:20;
+  }
+  [data-tip]:hover::after{
+    opacity:1;
+    transform:translateX(-50%) scale(1) translateY(0);
+  }
+  [data-tip]:hover::before{
+    opacity:1;
+    transform:translateX(-50%) scale(1);
+  }
+
+  .music-widget{
+    position:fixed;
+    right:20px; bottom:20px;
+    z-index:60;
+    display:flex; align-items:center;
+    background:rgba(23,30,61,0.85);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:10px;
+    box-shadow:0 20px 40px -18px rgba(0,0,0,0.55);
+  }
+  .music-info{
+    text-align:right;
+    line-height:1.25;
+    margin-right:10px;
+    max-width:150px;
+  }
+  .music-info .song-title{
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:0.78rem;
+    color:var(--text);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .music-info .song-artist{
+    font-size:0.7rem;
+    color:var(--muted);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .music-toggle{
+    width:40px; height:40px;
+    border-radius:50%;
+    border:0;
+    background:var(--accent);
+    color:#0A0E20;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    flex-shrink:0;
+    transition:background .15s ease;
+  }
+  .music-toggle:hover{background:var(--accent-soft);}
+  .music-toggle svg{width:18px; height:18px;}
+  .music-widget .vol-wrap{
+    width:0;
+    overflow:hidden;
+    transition:width .2s ease, margin .2s ease;
+  }
+  .music-widget.open .vol-wrap{
+    width:90px;
+    margin-left:10px;
+  }
+  .music-widget input[type="range"]{
+    width:90px;
+    accent-color:var(--accent-soft);
+    cursor:pointer;
+  }
+
+  section.block.inquiry{padding-top:0; padding-bottom:0;}
+  .inquiry-box{
+    text-align:center;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:48px 24px;
+  }
+  .inquiry-box h2{
+    font-size:clamp(1.2rem, 2.4vw, 1.6rem);
+    font-weight:600;
+  }
+  .inquiry-mail{
+    display:inline-block;
+    margin-top:14px;
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    word-break:break-all;
+    transition:color .15s ease;
+  }
+  .inquiry-mail:hover{color:var(--text);}
+
+  .portfolio-slide.img-missing::after{
+    content:"Foto belum ditambahkan";
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+
+  .portfolio{
+    max-width:760px;
+    margin:0 auto;
+  }
+  .portfolio-viewer{
+    position:relative;
+    aspect-ratio:16/10;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+    box-shadow:0 30px 60px -25px rgba(91,141,239,0.35);
+  }
+  .portfolio-slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s ease;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .portfolio-slide.active{
+    opacity:1;
+    pointer-events:auto;
+  }
+  .portfolio-slide img{width:100%; height:100%; object-fit:cover;}
+  .portfolio-slide iframe{width:100%; height:100%; border:0;}
+  .portfolio-slide.link-slide{
+    flex-direction:column;
+    gap:20px;
+    padding:40px;
+    text-align:center;
+  }
+  .portfolio-slide.link-slide h3{
+    font-size:1.2rem;
+    font-weight:600;
+  }
+  .portfolio-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    width:100%;
+    max-width:280px;
+  }
+  .portfolio-nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px; height:44px;
+    border-radius:50%;
+    background:rgba(16,21,43,0.55);
+    backdrop-filter:blur(6px);
+    border:1px solid var(--border);
+    color:var(--text);
+    font-size:1.3rem;
+    line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    z-index:5;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .portfolio-nav-btn:hover{
+    border-color:var(--accent-soft);
+    background:rgba(91,141,239,0.3);
+  }
+  .portfolio-nav-btn.prev{left:14px;}
+  .portfolio-nav-btn.next{right:14px;}
+  .portfolio-caption{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.92rem;
+    margin-top:20px;
+  }
+  .portfolio-dots{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:14px;
+  }
+  .portfolio-dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--border);
+    border:0;
+    padding:0;
+    cursor:pointer;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .portfolio-dot.active{
+    background:var(--accent-soft);
+    transform:scale(1.35);
+  }
+
+  .portfolio-video{
+    margin-top:44px;
+    padding-top:36px;
+    border-top:1px solid var(--border);
+    text-align:center;
+  }
+  .portfolio-video h3{
+    font-size:1.05rem;
+    font-weight:600;
+    margin-bottom:20px;
+  }
+  .video-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  @media (max-width: 560px){
+    .portfolio-nav-btn{width:36px; height:36px; font-size:1.1rem;}
+  }
+
+  .commission-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  .price-toggle{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:rgba(23,30,61,0.5);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:8px 10px;
+    flex-shrink:0;
+  }
+  .price-arrow{
+    width:30px; height:30px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text);
+    font-size:1.1rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .price-arrow:hover{
+    border-color:var(--accent-soft);
+    background:rgba(91,141,239,0.2);
+  }
+  .price-label{
+    font-family:'Unbounded', sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--accent-soft);
+    width:180px;
+    text-align:center;
+    white-space:nowrap;
+  }
+  .commission-card{
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:28px 24px;
+    background:rgba(23,30,61,0.4);
+    display:flex; flex-direction:column;
+  }
+  .commission-card .c-title{
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    margin-bottom:6px;
+  }
+  .commission-card .c-price{
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:16px;
+  }
+  .commission-card .c-price.price-intl{display:none;}
+  .commission-grid.show-intl .c-price.price-local{display:none;}
+  .commission-grid.show-intl .c-price.price-intl{display:block;}
+  .commission-card ul{
+    list-style:none;
+    padding:0; margin:0 0 24px;
+    color:var(--muted);
+    font-size:0.92rem;
+  }
+  .commission-card li{
+    padding:7px 0;
+    border-top:1px solid var(--border);
+  }
+  .commission-card li:first-child{border-top:none;}
+  .commission-card .btn{
+    margin-top:auto;
+    text-align:center;
+    justify-content:center;
+  }
+
+  @media (max-width: 860px){
+    .commission-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width: 560px){
+    .commission-grid{grid-template-columns:1fr;}
+  }
+
+  footer{
+    position:relative; z-index:1;
+    border-top:1px solid var(--border);
+    padding:64px 24px 40px;
+  }
+  .team-section{
+    border-bottom:1px solid var(--border);
+    padding-bottom:48px;
+    margin-bottom:48px;
+  }
+  .team-title{
+    font-size:1.1rem;
+    font-weight:600;
+    margin-bottom:28px;
+    text-align:center;
+  }
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    max-width:560px;
+    margin:0 auto;
+  }
+  .team-member{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    text-decoration:none;
+  }
+  .team-photo{
+    width:96px; height:96px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+    margin-bottom:14px;
+    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+  .team-photo img{width:100%; height:100%; object-fit:cover;}
+  .team-member:hover .team-photo{
+    transform:scale(1.06);
+    border-color:var(--accent-soft);
+    box-shadow:0 14px 30px -14px rgba(91,141,239,0.55);
+  }
+  .team-name{
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:0.9rem;
+    color:var(--text);
+    transition:color .15s ease;
+  }
+  .team-member:hover .team-name{color:var(--accent-soft);}
+  .team-role{
+    font-size:0.78rem;
+    color:var(--muted);
+    margin-top:2px;
+  }
+
+  @media (max-width: 560px){
+    .team-photo{width:76px; height:76px;}
+    .team-name{font-size:0.82rem;}
+    .team-role{font-size:0.72rem;}
+  }
+
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:32px;
+    margin-bottom:48px;
+  }
+  .footer-top h2{
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    max-width:16ch;
+  }
+  .socials{
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .social-link{
+    display:flex; align-items:center; gap:10px;
+    padding:11px 18px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    text-decoration:none;
+    color:var(--text);
+    font-size:0.92rem;
+    font-weight:500;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .social-link:hover{border-color:var(--accent-soft); color:var(--accent-soft);}
+  .social-link svg{width:18px; height:18px; flex-shrink:0;}
+  .copyright{
+    color:var(--muted);
+    font-size:0.85rem;
+    border-top:1px solid var(--border);
+    padding-top:24px;
+  }
+
+  @media (max-width: 860px){
+    .hero{grid-template-columns:1fr; padding-top:32px;}
+    .hero-video{order:-1;}
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width: 560px){
+    .grid{grid-template-columns:1fr;}
+    nav .nav-links{display:none;}
+    .music-info{display:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="profile.png" alt="Keicyla Icelin" class="brand-photo">
+    Keicyla<span>Icelin</span>
+  </div>
+  <nav class="nav-links">
+    <a href="#tentang" data-tip="Kenalan yuk!">About</a>
+    <a href="#konten" data-tip="Cek videonya!">Content</a>
+    <a href="#portofolio" data-tip="Lihat karya!">Portfolio</a>
+    <a href="#komisi" data-tip="Order jasa!">Services</a>
+    <a href="#kontak" data-tip="Sosmed aku!">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="kicker">Streamer &amp; Content Creator</div>
+    <h1>Game, Cover And Roleplay! <em>Keicyla Icelin</em></h1>
+    <p>Playing Game, Cover Song, And Roleplay! You'll find me grinding levels, editing videos, or cozying up with a book.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://www.youtube.com/channel/UCGAC6ThyAlSD2FzqvTxKbcA/join" target="_blank" rel="noopener" data-tip="Gabung yuk!">Join Membership</a>
+      <a class="btn btn-ghost" href="https://tako.id/keicylaicelin" target="_blank" rel="noopener" data-tip="Traktir aku~">Donate</a>
+    </div>
+  </div>
+  <div class="hero-video">
+    <iframe src="https://www.youtube.com/embed/jAB39-3vYDE" title="Video intro" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="block" id="tentang">
+  <div class="block-head">
+    <div>
+      <h2>Tentang</h2>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="about-col">
+      <div class="about-photo">
+        <img src="Foto Profile.jpg" alt="Keicyla Icelin">
+      </div>
+      <p class="about-text">Hi everyone! I'm Keyla, an IT major. My daily life is pretty easy to guess if I'm not busy with uni, you'll find me screen side grinding levels, editing videos, or cozying up with a book. Nice to meet you!</p>
+    </div>
+    <table class="about-table">
+      <tr><th>Date of Birth</th><td>February 21</td></tr>
+      <tr><th>Height</th><td>154Cm / 5'1"</td></tr>
+      <tr><th>Fanname</th><td>KEICILIK</td></tr>
+      <tr><th>Zodiac Sign</th><td>Pisces</td></tr>
+      <tr><th>Chinese Zodiac</th><td>Wood Monkey</td></tr>
+      <tr><th>Relationship Status</th><td>Taken by Setyawan</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="konten">
+  <div class="block-head">
+    <div>
+      <h2>My Content</h2>
+      <p>Here are a few videos and live streams from my content!</p>
+    </div>
+  </div>
+  <div class="grid">
+
+    <a class="tile" href="https://youtu.be/qOfhe-lXsSo" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/qOfhe-lXsSo/hqdefault.jpg" alt="Judul video 1">
+        <div class="play" data-tip="Tonton yuk!">▶</div>
+      </div>
+      <div class="meta">
+        <div class="tag">YouTube</div>
+        <h3>Menggapai Mentari Original Song By Aretha Kirana</h3>
+        <div class="sub">Cover By Keicyla Icelin</div>
+      </div>
+    </a>
+
+    <a class="tile" href="https://youtu.be/gkTEaJb0cZs" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/gkTEaJb0cZs/hqdefault.jpg" alt="Judul video 2">
+        <div class="play" data-tip="Tonton yuk!">▶</div>
+      </div>
+      <div class="meta">
+        <div class="tag">YouTube</div>
+        <h3>ESTETIKA REAKTAN  || PROJECT S:1 ARC 2</h3>
+        <div class="sub">Teaser Roleplay Minecraft Iris Asteritha Project S:1 ARC 2</div>
+      </div>
+    </a>
+
+    <a class="tile" href="https://youtu.be/J0I5kry3uXA" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/J0I5kry3uXA/hqdefault.jpg" alt="Judul video 3">
+        <div class="play" data-tip="Tonton yuk!">▶</div>
+      </div>
+      <div class="meta">
+        <div class="tag">YouTube</div>
+        <h3>Adrenaline Original Song By TrySail</h3>
+        <div class="sub">Cover By Keicyla Icelin</div>
+      </div>
+    </a>
+
+    <a class="tile" href="https://youtu.be/3EsZ3-st6n8" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/3EsZ3-st6n8/hqdefault.jpg" alt="Judul video 4">
+        <div class="play" data-tip="Tonton yuk!">▶</div>
+      </div>
+      <div class="meta">
+        <div class="tag">YouTube</div>
+        <h3>Perisai Jitu Original Song By Moona Hoshinova</h3>
+        <div class="sub">Cover By Keicyla Icelin</div>
+      </div>
+    </a>
+
+    <a class="tile" href="https://youtu.be/YLDNwL7I5JQ" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/YLDNwL7I5JQ/hqdefault.jpg" alt="Judul video 5">
+        <div class="play" data-tip="Tonton yuk!">▶</div>
+      </div>
+      <div class="meta">
+        <div class="tag">YouTube</div>
+        <h3>Minecraft Horror</h3>
+        <div class="sub">WORLD INI UDAH GAK AMAN! ADA SOSOK MISTERIUS YANG MULAI MENEROR KITA!! 😭😱</div>
+      </div>
+    </a>
+
+    <a class="tile" href="https://youtu.be/fak7VvP_EQA" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/fak7VvP_EQA/hqdefault.jpg" alt="Judul video 6">
+        <div class="play" data-tip="Tonton yuk!">▶</div>
+      </div>
+      <div class="meta">
+        <div class="tag">YouTube</div>
+        <h3>Bombanana!</h3>
+        <div class="sub">KUMPULAN MONYET BEREVOLUSI MENGJINAKKAN BOM!! 🐒😏</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="block inquiry" id="kolaborasi">
+  <div class="inquiry-box">
+    <h2>Business inquiries or Collab?</h2>
+    <a class="inquiry-mail" href="mailto:celynoshina@gmail.com" data-tip="Kirim email!">celynoshina@gmail.com</a>
+  </div>
+</section>
+
+<section class="block" id="portofolio">
+  <div class="block-head">
+    <div>
+      <h2>Portofolio</h2>
+      <p>My Portofolio Desain, Live Chat CSS, Editing Video, and Website.</p>
+    </div>
+  </div>
+
+  <div class="portfolio">
+    <div class="portfolio-viewer">
+
+      <div class="portfolio-slide active" data-title="Thumbnail Desain">
+        <img src="freetalk (21).png" alt="Foto Portofolio 1">
+      </div>
+
+      <div class="portfolio-slide" data-title="Thumbnail Desain">
+        <img src="freetalk (24).png" alt="Foto Portofolio 2">
+      </div>
+
+      <div class="portfolio-slide" data-title="Live Chat CSS AKARI">
+        <img src="CSS AKARI.png" alt="Foto Portofolio 3">
+      </div>
+
+      <div class="portfolio-slide" data-title="Live Chat CSS AWAN">
+        <img src="CSS AWAN.png" alt="Foto Portofolio 4">
+      </div>
+
+      <div class="portfolio-slide" data-title="Website Profile Akarri">
+        <img src="freetalk (25).png" alt="Foto Portofolio 5">
+      </div>
+
+      <div class="portfolio-slide" data-title="Website Profile Awan">
+        <img src="web.png" alt="Foto Portofolio 6">
+      </div>
+
+      <button type="button" class="portfolio-nav-btn prev" id="portfolioPrev" aria-label="Sebelumnya" data-tip="Sebelumnya">‹</button>
+      <button type="button" class="portfolio-nav-btn next" id="portfolioNext" aria-label="Berikutnya" data-tip="Berikutnya">›</button>
+    </div>
+
+    <div class="portfolio-caption" id="portfolioCaption">Portofolio</div>
+    <div class="portfolio-dots" id="portfolioDots"></div>
+
+    <div class="portfolio-video">
+      <h3>Portofolio Video Editing</h3>
+      <div class="video-links">
+        <a class="btn btn-ghost" href="https://youtube.com/playlist?list=PLAkLClaes8sWbWLfpfl5eoo34IEmipgu2&si=TWh4jniuIsqSYzUq" target="_blank" rel="noopener" data-tip="Tonton yuk!">Video Editing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="komisi">
+  <div class="block-head">
+    <div>
+      <h2>Open Commission</h2>
+      <p>I am open commission you cant choose your packet or dm me for custom requests.</p>
+    </div>
+    <div class="price-toggle">
+      <button type="button" id="priceLeft" class="price-arrow" aria-label="Harga sebelumnya" data-tip="Switch Price">‹</button>
+      <span id="priceLabel" class="price-label">Local Price</span>
+      <button type="button" id="priceRight" class="price-arrow" aria-label="Harga berikutnya" data-tip="Switch Price">›</button>
+    </div>
+  </div>
+  <div class="commission-grid">
+
+    <div class="commission-card">
+      <div class="c-title">Thumbnail Desain Simple</div>
+      <div class="c-price price-local">Rp 50.000</div>
+      <div class="c-price price-intl">$4.00</div>
+      <ul>
+        <li>Game, Freetalk, Debut, After Debut</li>
+        <li>Just simple editing desain! For complex you can ask me in dm</li>
+        <li>Inc Solo Thumbnail or Collaboration</li>
+        <li>3x Revision</li>
+        <li>Estimation: 1-3 Days</li>
+      </ul>
+      <a class="btn btn-primary" href="https://discord.com/users/1308333484804407297" target="_blank" rel="noopener">Order Now</a>
+    </div>
+
+    <div class="commission-card">
+      <div class="c-title">Live Chat CSS</div>
+      <div class="c-price price-local">Rp 650.000</div>
+      <div class="c-price price-intl">$40.00</div>
+      <ul>
+        <li>Simple Desain</li>
+        <li>Simple Animation</li>
+        <li>Ex: Membership Notice Live Chat, Emote For Moderator and Members</li>
+        <li>Add On: Membership, Emote (You can ask me in dm for details)</li>
+        <li>Estimation: 7-14 Days</li>
+      </ul>
+      <a class="btn btn-primary" href="https://discord.com/users/1308333484804407297" target="_blank" rel="noopener">Order Now</a>
+    </div>
+
+    <div class="commission-card">
+      <div class="c-title">Video Editing Short</div>
+      <div class="c-price price-local">Rp 40.000 - Rp 80.000</div>
+      <div class="c-price price-intl">$5.50 - $10.50</div>
+      <ul>
+        <li>Simple Editing Start Rp 40.000 or $5.50 1 Minute</li>
+        <li>Complex Editing Rp 80.000 or $10.50 1 Minute</li>
+        <li>Simple Inc Little Sound Effect, VFX and Substittle</li>
+        <li>Complex Inc Full VFX, Sound Effect, Subtitle and Image Animation</li>
+        <li>3x Revision</li>
+        <li>Add on: Additional Effect, Elements, Revision, Rush Fee Or Request (You can ask me in dm for details)</li>
+        <li>Estimation: 3-5 Days</li>
+      </ul>
+      <a class="btn btn-primary" href="https://discord.com/users/1308333484804407297" target="_blank" rel="noopener">Order Now</a>
+    </div>
+
+    <div class="commission-card">
+      <div class="c-title">Video Editing Long</div>
+      <div class="c-price price-local">Rp 200.000 - Rp 350.000</div>
+      <div class="c-price price-intl">$15.50 - $30.00</div>
+      <ul>
+        <li>Simple Editing Start Rp 200.000 or $15.50 10 Minute</li>
+        <li>Complex Editing Rp 350.000 or $30.00 3 Minute</li>
+        <li>Simple Inc Little Sound Effect, VFX and Substittle</li>
+        <li>Complex Inc Full VFX, Sound Effect, Subtitle and Image Animation</li>
+        <li>3x Revision</li>
+        <li>Add on: Additional Effect, Elements, Revision, Rush Fee Or Request (You can ask me in dm for details)</li>
+        <li>Estimation: 7-10 Days</li>
+      </ul>
+      <a class="btn btn-primary" href="https://discord.com/users/1308333484804407297" target="_blank" rel="noopener">Order Now</a>
+    </div>
+
+    <div class="commission-card">
+      <div class="c-title">Website HTML</div>
+      <div class="c-price price-local">Rp 1.000.000 - Rp 2.000.000</div>
+      <div class="c-price price-intl">$100 - $150</div>
+      <ul>
+        <li>Just code Website</li>
+        <li>You can request website for profile or something else</li>
+        <li>Ex: Hosting</li>
+        <li>3x Revision</li>
+        <li>Estimation: 1 month - 2 month</li>
+      </ul>
+      <a class="btn btn-primary" href="https://discord.com/users/1308333484804407297" target="_blank" rel="noopener">Order Now</a>
+    </div>
+
+  </div>
+</section>
+
+<footer id="kontak">
+  <div class="wrap">
+
+    <div class="team-section">
+      <h3 class="team-title">Keyla Team</h3>
+      <div class="team-grid">
+
+        <a class="team-member" href="https://www.youtube.com/@setyawang" target="_blank" rel="noopener" data-tip="Cek sosmednya!">
+          <div class="team-photo">
+            <img src="png simple bg.png" alt="Setyawan">
+          </div>
+          <div class="team-name">Setyawan</div>
+          <div class="team-role">Animator And Scheduler</div>
+        </a>
+
+        <a class="team-member" href="http://x.com/NyxDraven" target="_blank" rel="noopener" data-tip="Cek sosmednya!">
+          <div class="team-photo">
+            <img src="zK6NVrkb_400x400.jpg" alt="Nyx Draven">
+          </div>
+          <div class="team-name">Nyx Draven</div>
+          <div class="team-role">Manager</div>
+        </a>
+
+        <a class="team-member" href="https://discord.com/users/160986495925092352" target="_blank" rel="noopener" data-tip="Cek sosmednya!">
+          <div class="team-photo">
+            <img src="Screenshot 2026-10-16 163327.png" alt="Napis">
+          </div>
+          <div class="team-name">Napis</div>
+          <div class="team-role">Editor</div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <h2>Look around about my social media? Let's connect!</h2>
+      <div class="socials">
+        <a class="social-link" href="https://www.youtube.com/@Keicyla.Icelin" target="_blank" rel="noopener" data-tip="Subscribe dong!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.95-1.9-.95-2.36-1.01C16.9 2.5 12 2.5 12 2.5h-.01s-4.9 0-8.2.33c-.46.06-1.46.06-2.36 1.01C.73 4.56.5 6.2.5 6.2S.26 8.12.26 10.05v1.8c0 1.93.24 3.85.24 3.85s.23 1.64.94 2.36c.9.95 2.08.92 2.6 1.02 1.89.18 8 .24 8 .24s4.9-.01 8.2-.33c.46-.06 1.46-.06 2.36-1.01.71-.72.94-2.36.94-2.36s.24-1.92.24-3.85v-1.8c0-1.93-.24-3.85-.24-3.85zM9.75 14.85V7.65l6.27 3.6-6.27 3.6z"/></svg>
+          YouTube
+        </a>
+        <a class="social-link" href="https://www.tiktok.com/@keicylaicelin" target="_blank" rel="noopener" data-tip="Follow yuk!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.6a3.1 3.1 0 1 1-2.2-2.97V9.3a6.3 6.3 0 1 0 5.4 6.24V8.1a7.3 7.3 0 0 0 4.4 1.47V6.3a4.1 4.1 0 0 1-4.4-4.3z"/></svg>
+          TikTok
+        </a>
+        <a class="social-link" href="https://www.instagram.com/keynevr" target="_blank" rel="noopener" data-tip="Follow IG aku!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.64.42 1.37.47 2.43C21.99 8.94 22 9.28 22 12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.16 1.77 4.9 4.9 0 0 1-1.77 1.16c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.16-1.77a4.9 4.9 0 0 1 1.77-1.16c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.97.04-1.5.2-1.85.34-.47.18-.8.4-1.15.75-.35.35-.57.68-.75 1.15-.14.35-.3.88-.34 1.85C3.81 9 3.8 9.32 3.8 12s.01 3 .06 4.05c.04.97.2 1.5.34 1.85.18.47.4.8.75 1.15.35.35.68.57 1.15.75.35.14.88.3 1.85.34 1.05.05 1.37.06 4.05.06s3-.01 4.05-.06c.97-.04 1.5-.2 1.85-.34.47-.18.8-.4 1.15-.75.35-.35.57-.68.75-1.15.14-.35.3-.88.34-1.85.05-1.05.06-1.37.06-4.05s-.01-3-.06-4.05c-.04-.97-.2-1.5-.34-1.85a3.1 3.1 0 0 0-.75-1.15 3.1 3.1 0 0 0-1.15-.75c-.35-.14-.88-.3-1.85-.34C15 3.81 14.68 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 1 0 10.3 5.15 5.15 0 0 1 0-10.3zm0 1.8a3.35 3.35 0 1 0 0 6.7 3.35 3.35 0 0 0 0-6.7zm5.35-1.99a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+          Instagram
+        </a>
+        <a class="social-link" href="https://www.facebook.com/keynevr21" target="_blank" rel="noopener" data-tip="Add aku!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.77l-.44 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          Facebook
+        </a>
+        <a class="social-link" href="https://x.com/keynevr" target="_blank" rel="noopener" data-tip="Follow yuk!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.9 2h6.4l4.4 5.8L18.9 2zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20z"/></svg>
+          Twitter
+        </a>
+        <a class="social-link" href="https://whatsapp.com/channel/0029Vaw0afb2P59kP2F4Es1U" target="_blank" rel="noopener" data-tip="Join saluran!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7-1.87-1.87-4.35-2.91-7.02-2.91zm0 18.07h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.14.82.84-3.06-.19-.31a8.16 8.16 0 0 1-1.25-4.35c0-4.52 3.68-8.2 8.24-8.2 2.2 0 4.27.86 5.82 2.42a8.15 8.15 0 0 1 2.41 5.8c0 4.52-3.68 8.2-8.24 8.2zm4.51-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.66-1.17.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+          WhatsApp Saluran
+        </a>
+        <a class="social-link" href="https://discord.gg/9UwsFx39Zs" target="_blank" rel="noopener" data-tip="Gabung server!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.86-.61 1.24a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.24.08.08 0 0 0-.08-.04c-1.7.29-3.34.8-4.89 1.52a.07.07 0 0 0-.03.03C.53 8.6-.32 12.72.1 16.79a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.04.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1 0-.13c.13-.09.25-.19.37-.28a.07.07 0 0 1 .08 0c3.93 1.8 8.18 1.8 12.06 0a.07.07 0 0 1 .08 0c.12.1.24.2.37.29a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.9a.08.08 0 0 0-.04.11c.36.7.78 1.36 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.04.08.08 0 0 0 .03-.06c.5-4.7-.83-8.79-3.5-12.4a.06.06 0 0 0-.03-.02zM8.02 14.33c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.33-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.33-.95 2.42-2.16 2.42z"/></svg>
+          Discord
+        </a>
+        <a class="social-link" href="https://tako.id/keicylaicelin" target="_blank" rel="noopener" data-tip="Traktir aku~">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10.1-9.1C.36 9.24 1.2 5.9 4.2 4.7c2.1-.85 4.3-.1 5.6 1.5.5.6 1.5.6 2 0 1.3-1.6 3.5-2.35 5.6-1.5 3 1.2 3.84 4.54 2.3 7.2C19.5 16.4 12 21 12 21z"/></svg>
+          Donasi
+        </a>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Made By Keicyla Icelin</div>
+  </div>
+</footer>
+
+<div class="music-widget" id="musicWidget">
+  <audio id="bgMusic" src="Cheerleader  Porter Robinson - Isaa Cover (Rock Version).mp3" loop preload="none"></audio>
+  <div class="music-info">
+    <div class="song-title">Cheerleader (Rock Version)</div>
+    <div class="song-artist">by Porter Robinson</div>
+  </div>
+  <button class="music-toggle" id="musicToggle" aria-label="Putar/jeda musik" data-tip="Puter musik!">
+    <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </button>
+  <div class="vol-wrap">
+    <input type="range" id="musicVolume" min="0" max="100" value="50">
+  </div>
+</div>
+
+<script>
+  (function(){
+    const audio = document.getElementById('bgMusic');
+    const widget = document.getElementById('musicWidget');
+    const toggleBtn = document.getElementById('musicToggle');
+    const iconPlay = document.getElementById('iconPlay');
+    const iconPause = document.getElementById('iconPause');
+    const volumeSlider = document.getElementById('musicVolume');
+
+    audio.volume = 0.5;
+
+    function updateIcons(playing){
+      iconPlay.style.display = playing ? 'none' : 'block';
+      iconPause.style.display = playing ? 'block' : 'none';
+      widget.classList.toggle('open', playing);
+    }
+
+    function play(){
+      audio.play().then(() => updateIcons(true)).catch(() => updateIcons(false));
+    }
+
+    window.addEventListener('load', play);
+
+    function tryPlayOnFirstInteraction(){
+      if (audio.paused) play();
+      document.removeEventListener('click', tryPlayOnFirstInteraction);
+      document.removeEventListener('touchstart', tryPlayOnFirstInteraction);
+    }
+    document.addEventListener('click', tryPlayOnFirstInteraction);
+    document.addEventListener('touchstart', tryPlayOnFirstInteraction);
+
+    toggleBtn.addEventListener('click', function(){
+      if (audio.paused){
+        play();
+      } else {
+        audio.pause();
+        updateIcons(false);
+      }
+    });
+
+    volumeSlider.addEventListener('input', function(){
+      audio.volume = volumeSlider.value / 100;
+    });
+  })();
+
+  (function(){
+    function handleMissing(img){
+      img.style.display = 'none';
+      if (img.parentElement) img.parentElement.classList.add('img-missing');
+    }
+    document.querySelectorAll('img').forEach(function(img){
+      img.addEventListener('error', function(){ handleMissing(img); });
+      if (img.complete && img.naturalWidth === 0) handleMissing(img);
+    });
+  })();
+
+  (function(){
+    const slides = document.querySelectorAll('.portfolio-slide');
+    const dotsWrap = document.getElementById('portfolioDots');
+    const caption = document.getElementById('portfolioCaption');
+    const prevBtn = document.getElementById('portfolioPrev');
+    const nextBtn = document.getElementById('portfolioNext');
+    let current = 0;
+
+    slides.forEach(function(slide, i){
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'portfolio-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.addEventListener('click', function(){ goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+
+    function update(){
+      slides.forEach(function(s, i){ s.classList.toggle('active', i === current); });
+      dotsWrap.querySelectorAll('.portfolio-dot').forEach(function(d, i){
+        d.classList.toggle('active', i === current);
+      });
+      if (caption) caption.textContent = slides[current].dataset.title || '';
+    }
+
+    function goTo(i){
+      current = (i + slides.length) % slides.length;
+      update();
+    }
+
+    prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+    nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+
+    update();
+  })();
+
+  (function(){
+    const grid = document.querySelector('.commission-grid');
+    const label = document.getElementById('priceLabel');
+    const btnLeft = document.getElementById('priceLeft');
+    const btnRight = document.getElementById('priceRight');
+    const modes = ['Price Local', 'Price International'];
+    let idx = 0;
+
+    function render(){
+      label.textContent = modes[idx];
+      grid.classList.toggle('show-intl', idx === 1);
+    }
+
+    btnLeft.addEventListener('click', function(){
+      idx = (idx - 1 + modes.length) % modes.length;
+      render();
+    });
+    btnRight.addEventListener('click', function(){
+      idx = (idx + 1) % modes.length;
+      render();
+    });
+
+    render();
+  })();
+</script>
+
+</body>
+</html>
