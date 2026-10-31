@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keicyla Icein - Streamer &amp; Content Creator</title>
-<meta name="description" content="Keicyla Icelin, an Indonesian streamer, content creator and editor!">
+<title>Keicyla Icelin - Streamer &amp; Content Creator</title>
+<meta name="description" content="Keicyla Icelin, streamer dan content creator Indonesia. Nonton siaran langsung, video, dan konten terbaru di sini.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -56,7 +56,7 @@
     position:sticky; top:16px; z-index:50;
     display:flex; align-items:center; justify-content:space-between;
     padding:14px 22px;
-    max-width:calc(var(--maxw) - 48px); margin:16px auto 0;
+    width:calc(100% - 48px); max-width:calc(var(--maxw) - 48px); margin:16px auto 0;
     background:rgba(23,30,61,0.72);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
@@ -81,6 +81,7 @@
     border:1px solid var(--border);
   }
   .brand span{color:var(--accent-soft);}
+  a.brand{text-decoration:none; color:inherit;}
   nav a{
     color:var(--muted);
     text-decoration:none;
@@ -90,7 +91,10 @@
   }
   nav a:hover{color:var(--text);}
   .nav-links{display:flex;}
+  nav.nav-links a{border-bottom:2px solid transparent; padding:4px 0;}
+  nav.nav-links a[aria-current="page"]{color:var(--text); border-bottom-color:var(--accent-soft);}
 
+  /* HERO */
   .hero{
     position:relative; z-index:1;
     max-width:var(--maxw); margin:0 auto;
@@ -242,63 +246,6 @@
     margin:10px 0 0;
   }
 
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:1px;
-    background:var(--border);
-    border:1px solid var(--border);
-  }
-  .tile{
-    background:var(--bg);
-    position:relative;
-    overflow:hidden;
-    text-decoration:none;
-    display:block;
-  }
-  .tile .thumb{
-    aspect-ratio:16/9;
-    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
-    position:relative;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .tile .thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
-  .tile .thumb iframe{width:100%; height:100%; border:0; display:block;}
-  .tile .thumb .play{
-    position:relative;
-    width:52px; height:52px;
-    border-radius:50%;
-    border:1px solid rgba(237,239,247,0.35);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--text);
-    transition:transform .18s ease, border-color .18s ease, background .18s ease;
-    background:rgba(16,21,43,0.4);
-  }
-  .tile:hover .thumb .play{
-    transform:scale(1.08);
-    border-color:var(--accent-soft);
-    background:rgba(91,141,239,0.25);
-  }
-  .tile .meta{
-    padding:18px 20px 22px;
-  }
-  .tile .tag{
-    color:var(--accent-soft);
-    font-size:0.78rem;
-    font-weight:600;
-    margin-bottom:8px;
-  }
-  .tile h3{
-    font-size:1.02rem;
-    font-weight:600;
-    color:var(--text);
-  }
-  .tile .sub{
-    color:var(--muted);
-    font-size:0.88rem;
-    margin-top:6px;
-  }
-
   [data-tip]{position:relative;}
   [data-tip]::after{
     content:attr(data-tip);
@@ -340,6 +287,18 @@
   [data-tip]:hover::before{
     opacity:1;
     transform:translateX(-50%) scale(1);
+  }
+
+  header [data-tip]::after{
+    bottom:auto;
+    top:calc(100% + 14px);
+    transform:translateX(-50%) scale(0.6) translateY(-6px);
+  }
+  header [data-tip]::before{
+    bottom:auto;
+    top:calc(100% + 2px);
+    border-top-color:transparent;
+    border-bottom-color:var(--accent-soft);
   }
 
   .music-widget{
@@ -552,6 +511,58 @@
     .portfolio-nav-btn{width:36px; height:36px; font-size:1.1rem;}
   }
 
+  .software-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:20px;
+  }
+  .software-card{
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:24px;
+    background:rgba(23,30,61,0.4);
+    transition:border-color .18s ease, transform .18s ease;
+  }
+  .software-card:hover{
+    border-color:var(--accent-soft);
+    transform:translateY(-3px);
+  }
+  .software-icon{
+    width:48px; height:48px;
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    color:#0A0E20;
+    background:linear-gradient(135deg, var(--accent), var(--accent-soft));
+    margin-bottom:18px;
+  }
+  .software-tag{
+    color:var(--accent-soft);
+    font-size:0.78rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .software-card h3{
+    font-size:1.02rem;
+    font-weight:600;
+    margin-bottom:10px;
+    overflow-wrap:anywhere;
+  }
+  .software-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:0.92rem;
+  }
+  @media (max-width: 860px){
+    .software-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
+  }
+  @media (max-width: 560px){
+    .software-grid{grid-template-columns:1fr; gap:14px;}
+    .software-card{padding:20px;}
+  }
+
   .commission-grid{
     display:grid;
     grid-template-columns:repeat(4, 1fr);
@@ -701,75 +712,721 @@
     .tos-table thead th:first-child, .tos-table tbody th{width:36%;}
   }
 
-  footer{
-    position:relative; z-index:1;
-    border-top:1px solid var(--border);
-    padding:64px 24px 40px;
+  #main{min-height:60vh;}
+  .page{animation:pageIn .35s ease both;}
+  @keyframes pageIn{
+    from{opacity:0; transform:translateY(8px);}
+    to{opacity:1; transform:none;}
   }
-  .team-section{
-    border-bottom:1px solid var(--border);
-    padding-bottom:48px;
-    margin-bottom:48px;
-  }
-  .team-title{
-    font-size:1.1rem;
-    font-weight:600;
-    margin-bottom:28px;
-    text-align:center;
-  }
-  .team-grid{
+  .page > section.block:first-child{padding-top:56px;}
+  .page > section.block + section.block:not(.inquiry){padding-top:24px;}
+
+  .char-intro{max-width:64ch !important;}
+  .char-title{font-size:clamp(1.2rem, 2.4vw, 1.5rem); font-weight:600; margin-bottom:28px;}
+  .page > section.block.char-section{padding-bottom:40px;}
+  .page > section.block.char-head{padding-bottom:0;}
+  .page > section.block.fanart{text-align:center; padding-bottom:96px;}
+
+  .char{
     display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:24px;
-    max-width:560px;
-    margin:0 auto;
+    grid-template-columns:minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap:48px;
+    align-items:start;
   }
-  .team-member{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    text-decoration:none;
-    min-width:0;
-  }
-  .team-photo{
-    width:96px; height:96px;
-    border-radius:50%;
+  .char.char-center{align-items:center;}
+  .char-left{display:flex; flex-direction:column; align-items:center; gap:18px; min-width:0;}
+  .char-photo{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/5;
+    border-radius:16px;
     overflow:hidden;
     border:1px solid var(--border);
     background:linear-gradient(135deg, var(--panel), var(--bg-alt));
-    margin-bottom:14px;
-    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    box-shadow:0 30px 60px -25px rgba(91,141,239,0.35);
   }
-  .team-photo img{width:100%; height:100%; object-fit:cover;}
-  .team-member:hover .team-photo{
-    transform:scale(1.06);
+  .char-photo img{width:100%; height:100%; object-fit:cover;}
+
+  .pslider-track{
+    position:absolute; inset:0;
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  .pslider-track::-webkit-scrollbar{display:none;}
+  .pslider-track:focus-visible{outline-offset:-3px;}
+  .pslide{
+    flex:0 0 100%; min-width:0; height:100%;
+    scroll-snap-align:start; scroll-snap-stop:always;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pslide.img-missing::after{content:"Gambar karakter"; color:var(--muted); font-size:0.9rem;}
+  .pslider-btn{
+    position:absolute; top:50%; transform:translateY(-50%);
+    z-index:2;
+    width:34px; height:34px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:rgba(16,21,43,0.55);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    color:var(--text);
+    font-size:1.1rem; line-height:1;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .pslider-btn:hover{border-color:var(--accent-soft); background:rgba(91,141,239,0.4);}
+  .pslider-btn.prev{left:10px;}
+  .pslider-btn.next{right:10px;}
+  @media (hover: none){
+    .pslider-btn{display:none;}
+  }
+  .pslider-dots{
+    position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+    z-index:2;
+    display:flex; gap:7px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:rgba(16,21,43,0.55);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    pointer-events:none;
+  }
+  .pslider-dot{
+    pointer-events:auto;
+    position:relative;
+    width:7px; height:7px;
+    border-radius:50%;
+    border:0; padding:0;
+    background:rgba(237,239,247,0.4);
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .pslider-dot::after{content:""; position:absolute; inset:-8px;}
+  .pslider-dot.active{background:var(--accent-soft);}
+
+  .rp-logo{
+    width:96px; height:96px;
+    border-radius:14px;
+    border:1px dashed var(--border);
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .rp-logo img{width:100%; height:100%; object-fit:contain;}
+  .rp-logo.img-missing::after{content:"Logo RP"; color:var(--muted); font-size:0.78rem;}
+  .char-info{min-width:0;}
+  .char-name{font-size:clamp(1.4rem, 3vw, 2rem); font-weight:600; margin-bottom:16px; overflow-wrap:anywhere;}
+  .char-desc{color:var(--muted); margin:0;}
+
+  .char-table{width:100%; border-collapse:collapse; margin:0 0 24px; border-top:1px solid var(--border);}
+  .char-table tr{border-bottom:1px solid var(--border);}
+  .char-table th{
+    text-align:left; vertical-align:top;
+    width:36%;
+    padding:13px 0;
+    color:var(--muted);
+    font-weight:500;
+    font-size:0.9rem;
+  }
+  .char-table td{padding:13px 0; vertical-align:top; font-size:0.95rem; color:var(--text); overflow-wrap:anywhere;}
+  .char-links{display:flex; flex-wrap:wrap; gap:12px;}
+
+  .rp-panel{
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    background:rgba(23,30,61,0.4);
+    box-shadow:0 30px 60px -25px rgba(91,141,239,0.3);
+  }
+  .rp-head{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:14px 24px;
+    background:rgba(91,141,239,0.12);
+    border-bottom:1px solid var(--border);
+    font-family:'Unbounded', sans-serif;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--accent-soft);
+  }
+  .rs-stage{
+    display:grid;
+    grid-template-columns:auto minmax(0, 1fr) auto;
+    align-items:center;
+    gap:10px;
+    padding:28px 16px 8px;
+  }
+  .cslider-side{
+    width:44px; height:44px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text);
+    font-size:1.3rem; line-height:1;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .cslider-side:hover{border-color:var(--accent-soft); background:rgba(91,141,239,0.2);}
+  .rs-track{
+    position:relative;
+    display:flex; gap:22px;
+    min-width:0;
+    padding:26px calc(50% - 120px);
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  .rs-track::-webkit-scrollbar{display:none;}
+  .rs-track:focus-visible{outline-offset:-2px;}
+  .rs-card{
+    flex:0 0 240px;
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:inherit;
+    scroll-snap-align:center; scroll-snap-stop:always;
+    transform:scale(0.84);
+    opacity:0.5;
+    filter:saturate(0.7);
+    transition:transform .3s ease, opacity .3s ease, filter .3s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .rs-card.is-active{transform:scale(1); opacity:1; filter:none;}
+  .rs-frame{position:relative;}
+  .rs-photo{
+    aspect-ratio:3/4;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  .rs-photo img{width:100%; height:100%; object-fit:cover; -webkit-user-drag:none; user-select:none;}
+  .rs-photo.img-missing::after{content:"Foto karakter"; color:var(--muted); font-size:0.9rem;}
+  .rs-card.is-active .rs-photo{
     border-color:var(--accent-soft);
-    box-shadow:0 14px 30px -14px rgba(91,141,239,0.55);
+    box-shadow:0 0 0 3px rgba(143,214,255,0.22), 0 26px 50px -18px rgba(91,141,239,0.65);
   }
-  .team-name{
+  .rs-frame::before, .rs-frame::after{
+    content:"";
+    position:absolute;
+    width:24px; height:24px;
+    border:3px solid var(--accent-soft);
+    opacity:0;
+    transition:opacity .3s ease;
+    pointer-events:none;
+    z-index:1;
+  }
+  .rs-frame::before{top:-7px; left:-7px; border-right:0; border-bottom:0; border-top-left-radius:8px;}
+  .rs-frame::after{bottom:-7px; right:-7px; border-left:0; border-top:0; border-bottom-right-radius:8px;}
+  .rs-card.is-active .rs-frame::before, .rs-card.is-active .rs-frame::after{opacity:1;}
+  .rs-name{
+    margin-top:20px;
     font-family:'Unbounded', sans-serif;
     font-weight:600;
-    font-size:0.9rem;
-    color:var(--text);
-    max-width:100%;
+    font-size:1rem;
     overflow-wrap:anywhere;
+  }
+  .rs-sub{margin-top:4px; color:var(--muted); font-size:0.82rem; overflow-wrap:anywhere;}
+  .rs-hint{text-align:center; color:var(--muted); font-size:0.85rem; margin:0; padding:4px 16px 24px;}
+
+  .back-link{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-bottom:28px;
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.92rem;
     transition:color .15s ease;
   }
-  .team-member:hover .team-name{color:var(--accent-soft);}
-  .team-role{
-    font-size:0.78rem;
-    color:var(--muted);
-    margin-top:2px;
-    max-width:100%;
-    overflow-wrap:anywhere;
+  .back-link:hover{color:var(--accent-soft);}
+  .tag-row{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 22px;}
+  .tag-chip{
+    --c:143,214,255;
+    display:inline-flex; align-items:center; gap:7px;
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:0.85rem;
+    font-weight:700;
+    color:rgb(var(--c));
+    background:rgba(var(--c), 0.14);
+    border:1.5px solid rgba(var(--c), 0.45);
+    transform:rotate(-2deg);
+    transition:transform .15s ease;
+    cursor:default;
+  }
+  .tag-chip::before{content:""; width:6px; height:6px; border-radius:50%; background:currentColor;}
+  .tag-chip:nth-child(even){transform:rotate(2deg);}
+  .tag-chip:nth-child(5n+2){--c:190,160,255;}
+  .tag-chip:nth-child(5n+3){--c:255,170,200;}
+  .tag-chip:nth-child(5n+4){--c:150,230,190;}
+  .tag-chip:nth-child(5n+5){--c:255,210,140;}
+  .tag-chip:hover{transform:rotate(0) scale(1.08);}
+  .profile-block{margin-top:48px;}
+  .profile-block h3{
+    display:flex; align-items:center; gap:10px;
+    font-size:1.2rem; font-weight:600;
+    margin-bottom:16px;
+  }
+  .profile-block h3::before{content:""; width:4px; height:20px; border-radius:2px; background:var(--accent-soft);}
+  .profile-block p{color:var(--muted); line-height:1.8; max-width:72ch; margin:0 0 14px;}
+  .series-list{display:flex; flex-direction:column; gap:14px;}
+  .series-item{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;
+    padding:18px 22px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:rgba(23,30,61,0.4);
+  }
+  .series-name{font-family:'Unbounded', sans-serif; font-weight:600; font-size:1rem; overflow-wrap:anywhere;}
+
+  .fanart h3{font-size:clamp(1.2rem, 2.4vw, 1.6rem); font-weight:600; margin-bottom:12px;}
+  .fanart p{color:var(--muted); max-width:56ch; margin:0 auto 28px;}
+  .fanart-buttons{display:flex; flex-wrap:wrap; justify-content:center; gap:12px;}
+
+  @media (min-width: 721px) and (max-width: 900px){
+    nav.nav-links a{margin-left:16px; font-size:0.86rem;}
+  }
+  @media (max-width: 720px){
+    .char{grid-template-columns:minmax(0, 1fr); gap:28px;}
+    .char-photo{max-width:340px; margin:0 auto;}
+    .rp-head{padding:12px 18px;}
+    .rs-stage{gap:4px; padding:22px 8px 4px;}
+    .cslider-side{width:32px; height:32px; font-size:1.1rem;}
+    .rs-track{gap:12px; padding:22px calc(50% - 88px);}
+    .rs-card{flex-basis:176px;}
+    .series-item{padding:16px 18px;}
+    .fanart-buttons .btn, .fanart-buttons .social-link{flex:1 1 140px; justify-content:center; text-align:center;}
   }
 
-  @media (max-width: 560px){
-    .team-photo{width:76px; height:76px;}
-    .team-name{font-size:0.82rem;}
-    .team-role{font-size:0.72rem;}
+  .fa-head{
+    position:relative;
+    text-align:center;
+    padding:38px 24px 30px;
+    margin-bottom:36px;
+    border:1px solid var(--border);
+    background:
+      repeating-linear-gradient(0deg, rgba(143,214,255,0.045) 0 1px, transparent 1px 5px),
+      linear-gradient(180deg, rgba(91,141,239,0.16), rgba(23,30,61,0.35));
+    clip-path:polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
   }
+  .fa-head::before, .fa-head::after{
+    content:"";
+    position:absolute;
+    width:26px; height:26px;
+    border:3px solid var(--accent-soft);
+    pointer-events:none;
+  }
+  .fa-head::before{top:10px; left:10px; border-right:0; border-bottom:0;}
+  .fa-head::after{bottom:10px; right:10px; border-left:0; border-top:0;}
+  .fa-tag{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:5px 14px;
+    margin-bottom:16px;
+    border:1px solid rgba(143,214,255,0.4);
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-size:0.68rem;
+    font-weight:600;
+    letter-spacing:0.16em;
+  }
+  .fa-tag::before{content:""; width:7px; height:7px; background:var(--accent-soft); transform:rotate(45deg);}
+  .fa-title{
+    font-size:clamp(1.7rem, 4.6vw, 2.9rem);
+    font-weight:800;
+    margin:0 0 10px;
+    text-shadow:0 0 28px rgba(91,141,239,0.65);
+    overflow-wrap:anywhere;
+  }
+  .fa-sub{color:var(--muted); margin:0 0 24px;}
+  .fa-hud{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    font-family:'Unbounded', sans-serif;
+    font-size:0.7rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+    color:var(--accent-soft);
+  }
+  .fa-hud span{white-space:nowrap;}
+  .fa-bar{
+    flex:0 1 260px;
+    min-width:60px;
+    height:10px;
+    padding:1px;
+    border:1px solid rgba(143,214,255,0.45);
+    background:rgba(16,21,43,0.6);
+  }
+  .fa-bar i{
+    display:block;
+    width:100%; height:100%;
+    background:linear-gradient(90deg, var(--accent), var(--accent-soft));
+    box-shadow:0 0 12px rgba(143,214,255,0.7);
+    animation:faFill 1.2s ease backwards;
+  }
+  @keyframes faFill{from{width:0;}}
+
+  .fa-grid{
+    display:grid;
+    grid-template-columns:repeat(5, minmax(0, 1fr));
+    gap:18px;
+  }
+  .fa-cell{
+    transition:transform .25s ease, filter .25s ease;
+    animation:faIn .5s ease backwards;
+    animation-delay:calc(var(--i, 0) * 60ms);
+  }
+  @keyframes faIn{
+    from{opacity:0; transform:translateY(14px) scale(0.96);}
+  }
+  .fa-cell:hover{transform:translateY(-4px); filter:drop-shadow(0 14px 22px rgba(91,141,239,0.5));}
+  .fa-card{
+    position:relative;
+    display:block;
+    width:100%;
+    padding:2px;
+    border:0;
+    cursor:pointer;
+    color:inherit;
+    background:linear-gradient(135deg, rgba(143,214,255,0.55), rgba(91,141,239,0.18) 60%, rgba(143,214,255,0.35));
+    clip-path:polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    transition:background .25s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .fa-cell:hover .fa-card{background:linear-gradient(135deg, var(--accent-soft), var(--accent));}
+  .fa-img{
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    aspect-ratio:1;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+    clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+  }
+  .fa-img img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease;}
+  .fa-cell:hover .fa-img img{transform:scale(1.08);}
+  .fa-img.img-missing::after{content:"Fanart"; color:var(--muted); font-size:0.9rem;}
+  .fa-img::before{
+    content:"";
+    position:absolute; inset:0;
+    z-index:1;
+    background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+    transform:translateX(-120%);
+    transition:transform .7s ease;
+    pointer-events:none;
+  }
+  .fa-cell:hover .fa-img::before{transform:translateX(120%);}
+  .fa-slot{
+    position:absolute; top:12px; left:14px;
+    z-index:2;
+    padding:3px 8px;
+    border-radius:4px;
+    background:rgba(16,21,43,0.78);
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-size:0.66rem;
+    font-weight:600;
+    letter-spacing:0.08em;
+  }
+  .fa-note{
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    width:fit-content; max-width:100%;
+    margin:40px auto 0;
+    padding:14px 24px;
+    text-align:center;
+    color:var(--muted);
+    font-size:0.92rem;
+    border:1px solid var(--border);
+    background:rgba(23,30,61,0.5);
+    clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  }
+  .fa-dot{
+    flex:0 0 auto;
+    width:8px; height:8px;
+    background:var(--accent-soft);
+    transform:rotate(45deg);
+    animation:faPulse 1.6s ease-in-out infinite;
+  }
+  @keyframes faPulse{50%{opacity:0.3; transform:rotate(45deg) scale(0.7);}}
+
+  .fa-lightbox{
+    position:fixed; inset:0;
+    z-index:200;
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+    background:rgba(8,11,26,0.93);
+  }
+  .fa-lightbox[hidden]{display:none;}
+  .fa-lb-frame{display:flex; flex-direction:column; align-items:center; gap:14px; max-width:min(92vw, 1100px);}
+  .fa-lb-stage{
+    position:relative;
+    padding:6px;
+    border:1px solid rgba(143,214,255,0.5);
+    background:rgba(23,30,61,0.6);
+    box-shadow:0 0 0 4px rgba(143,214,255,0.1), 0 30px 80px rgba(0,0,0,0.6);
+  }
+  .fa-lb-img{display:block; width:auto; height:auto; max-width:min(88vw, 1100px); max-height:calc(100vh - 170px); object-fit:contain;}
+  .fa-lb-img[hidden], .fa-lb-empty[hidden]{display:none;}
+  .fa-lb-empty{
+    display:flex; align-items:center; justify-content:center;
+    width:min(80vw, 520px); height:min(60vh, 520px);
+    color:var(--muted);
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+  }
+  .fa-lb-cap{
+    display:flex; align-items:center; gap:14px;
+    font-family:'Unbounded', sans-serif;
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+    color:var(--accent-soft);
+  }
+  .fa-lb-by{color:var(--muted); font-family:'Manrope', sans-serif; letter-spacing:0; font-weight:600;}
+  .fa-lb-by[hidden]{display:none;}
+  .fa-lb-btn{
+    position:fixed;
+    z-index:2;
+    width:46px; height:46px;
+    border-radius:50%;
+    border:1px solid rgba(143,214,255,0.4);
+    background:rgba(23,30,61,0.85);
+    color:var(--text);
+    font-size:1.4rem; line-height:1;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .fa-lb-btn:hover{border-color:var(--accent-soft); background:rgba(91,141,239,0.4);}
+  .fa-lb-close{top:18px; right:18px; font-size:1.1rem;}
+  .fa-lb-prev{left:18px; top:50%; transform:translateY(-50%);}
+  .fa-lb-next{right:18px; top:50%; transform:translateY(-50%);}
+
+  @media (max-width: 720px){
+    .fa-grid{grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px;}
+    .fa-head{padding:30px 16px 24px;}
+    .fa-lightbox{padding:12px;}
+    .fa-lb-btn{width:40px; height:40px;}
+    .fa-lb-prev{left:8px; top:auto; bottom:18px; transform:none;}
+    .fa-lb-next{right:8px; top:auto; bottom:18px; transform:none;}
+    .fa-lb-img{max-width:calc(100vw - 44px); max-height:calc(100vh - 190px);}
+  }
+
+  .v-grid{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:22px;}
+  .v-cell{
+    transition:transform .25s ease, filter .25s ease;
+    animation:faIn .5s ease backwards;
+    animation-delay:calc(var(--i, 0) * 70ms);
+  }
+  .v-cell:hover{transform:translateY(-4px); filter:drop-shadow(0 14px 22px rgba(91,141,239,0.5));}
+  .tile{
+    position:relative;
+    display:block;
+    padding:2px;
+    text-decoration:none;
+    color:inherit;
+    background:linear-gradient(135deg, rgba(143,214,255,0.55), rgba(91,141,239,0.18) 60%, rgba(143,214,255,0.35));
+    clip-path:polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+    transition:background .25s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .v-cell:hover .tile{background:linear-gradient(135deg, var(--accent-soft), var(--accent));}
+  .v-inner{
+    background:var(--bg);
+    clip-path:polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+  .tile .thumb{
+    position:relative;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+  }
+  .tile .thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .4s ease;}
+  .v-cell:hover .thumb img{transform:scale(1.07);}
+  .tile .thumb::before{
+    content:"";
+    position:absolute; inset:0;
+    z-index:1;
+    background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+    transform:translateX(-120%);
+    transition:transform .7s ease;
+    pointer-events:none;
+  }
+  .v-cell:hover .thumb::before{transform:translateX(120%);}
+  .tile .thumb::after{
+    content:"";
+    position:absolute; inset:0;
+    z-index:1;
+    background:repeating-linear-gradient(0deg, rgba(0,0,0,0.07) 0 1px, transparent 1px 4px);
+    pointer-events:none;
+  }
+  .tile .thumb .play{
+    position:relative;
+    z-index:2;
+    width:54px; height:54px;
+    padding-left:3px;
+    border-radius:50%;
+    border:2px solid var(--accent-soft);
+    background:rgba(16,21,43,0.55);
+    color:var(--text);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 6px rgba(143,214,255,0.12), 0 0 22px rgba(143,214,255,0.35);
+    transition:transform .2s ease, background .2s ease;
+  }
+  .v-cell:hover .play{transform:scale(1.1); background:rgba(91,141,239,0.55);}
+  .v-slot{
+    position:absolute; top:10px; left:12px;
+    z-index:3;
+    padding:3px 8px;
+    border-radius:4px;
+    background:rgba(16,21,43,0.78);
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-size:0.66rem;
+    font-weight:600;
+    letter-spacing:0.08em;
+  }
+  .tile .meta{padding:16px 18px 20px; border-top:1px solid var(--border);}
+  .tile .tag{
+    display:inline-flex; align-items:center; gap:7px;
+    margin-bottom:10px;
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-size:0.64rem;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .tile .tag::before{content:""; width:6px; height:6px; background:var(--accent-soft); transform:rotate(45deg);}
+  .tile h3{font-size:1rem; font-weight:600; color:var(--text); overflow-wrap:anywhere;}
+  .tile .sub{color:var(--muted); font-size:0.88rem; margin-top:6px; overflow-wrap:anywhere;}
+  .page > section.block#konten{padding-bottom:48px;}
+  .tag-row-center{justify-content:center; margin:40px 0 0;}
+  .tag-row-center .tag-chip{font-size:0.95rem; padding:8px 20px;}
+
+  .tm-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+    gap:24px;
+    max-width:820px;
+    margin:0 auto;
+  }
+  .tm-card{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    transition:transform .25s ease, filter .25s ease;
+    animation:faIn .5s ease backwards;
+    animation-delay:calc(var(--i, 0) * 80ms);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .tm-card:hover{transform:translateY(-5px); filter:drop-shadow(0 16px 26px rgba(91,141,239,0.5));}
+  .tm-frame{
+    position:relative;
+    display:block;
+    padding:2px;
+    background:linear-gradient(135deg, rgba(143,214,255,0.55), rgba(91,141,239,0.18) 60%, rgba(143,214,255,0.35));
+    clip-path:polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+    transition:background .25s ease;
+  }
+  .tm-card:hover .tm-frame{background:linear-gradient(135deg, var(--accent-soft), var(--accent));}
+  .tm-photo{
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    aspect-ratio:3/4;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--panel), var(--bg-alt));
+    clip-path:polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+  .tm-photo img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease;}
+  .tm-card:hover .tm-photo img{transform:scale(1.07);}
+  .tm-photo.img-missing::after{content:"Foto"; color:var(--muted); font-size:0.9rem;}
+  .tm-slot{
+    position:absolute; top:12px; left:14px;
+    z-index:2;
+    padding:3px 8px;
+    border-radius:4px;
+    background:rgba(16,21,43,0.78);
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-size:0.66rem;
+    font-weight:600;
+    letter-spacing:0.08em;
+  }
+  .tm-go{
+    position:absolute; left:50%; bottom:12px;
+    z-index:2;
+    transform:translate(-50%, 8px);
+    padding:6px 14px;
+    border-radius:999px;
+    background:rgba(16,21,43,0.85);
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-size:0.62rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+    white-space:nowrap;
+    opacity:0;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .tm-card:hover .tm-go, .tm-card:focus-visible .tm-go{opacity:1; transform:translate(-50%, 0);}
+  @media (hover: none){
+    .tm-go{opacity:1; transform:translate(-50%, 0);}
+  }
+  .tm-plate{
+    display:block;
+    margin-top:16px;
+    padding:12px 16px;
+    border:1px solid var(--border);
+    border-left:3px solid var(--accent-soft);
+    background:rgba(23,30,61,0.5);
+  }
+  .tm-name{display:block; font-family:'Unbounded', sans-serif; font-weight:600; font-size:1rem; overflow-wrap:anywhere;}
+  .tm-role{display:flex; align-items:center; gap:8px; margin-top:8px; color:var(--muted); font-size:0.85rem; overflow-wrap:anywhere;}
+  .tm-role i{
+    flex:0 0 auto;
+    font-style:normal;
+    padding:2px 7px;
+    border-radius:4px;
+    background:rgba(143,214,255,0.14);
+    color:var(--accent-soft);
+    font-family:'Unbounded', sans-serif;
+    font-size:0.58rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+  }
+  .tm-hint{text-align:center; color:var(--muted); font-size:0.85rem; margin:36px 0 0;}
+
+  @media (max-width: 860px){
+    .v-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
+  }
+  @media (max-width: 560px){
+    .v-grid{grid-template-columns:minmax(0, 1fr); gap:16px;}
+    .tm-grid{grid-template-columns:minmax(0, 1fr); gap:14px;}
+    .tm-card{display:flex; align-items:center; gap:14px;}
+    .tm-frame{flex:0 0 104px;}
+    .tm-photo{aspect-ratio:1;}
+    .tm-plate{flex:1; min-width:0; margin-top:0;}
+    .tm-go{display:none;}
+    .tm-slot{top:8px; left:10px; padding:2px 6px; font-size:0.58rem;}
+  }
+
+  .contact{
+    position:relative; z-index:1;
+    padding:64px 0 40px;
+  }
+  .site-footer{
+    position:relative; z-index:1;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px 40px;
+  }
+
 
   .footer-top{
     display:flex; justify-content:space-between; align-items:flex-start;
@@ -806,19 +1463,14 @@
   @media (max-width: 860px){
     .hero{grid-template-columns:1fr; padding-top:32px;}
     .hero-video{order:-1;}
-    .grid{grid-template-columns:repeat(2, 1fr);}
   }
   @media (max-width: 560px){
-    .grid{grid-template-columns:1fr;}
     .music-info{display:none;}
   }
 
   html{-webkit-text-size-adjust:100%; text-size-adjust:100%;}
   body{overflow-x:clip;}
   section[id], footer[id]{scroll-margin-top:100px;}
-  .team-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}
-  .team-member{min-width:0;}
-  .team-name, .team-role{max-width:100%; overflow-wrap:anywhere;}
   .hero > *{min-width:0;}
 
   .nav-toggle{
@@ -857,6 +1509,7 @@
     header{
       top:12px;
       margin:12px 12px 0;
+      width:auto;
       max-width:none;
       padding:10px 12px 10px 14px;
     }
@@ -869,9 +1522,7 @@
       left:0; right:0;
       flex-direction:column;
       padding:8px;
-      background:rgba(23,30,61,0.97);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
+      background:#171E3D;
       border:1px solid var(--border);
       border-radius:20px;
       box-shadow:0 24px 40px -18px rgba(0,0,0,0.6);
@@ -881,15 +1532,19 @@
       margin:0;
       padding:14px 16px;
       border-radius:12px;
+      border-bottom:0;
       font-size:1rem;
     }
-    nav.nav-links a:hover{background:rgba(91,141,239,0.15);}
+    nav.nav-links a[aria-current="page"]{background:rgba(91,141,239,0.18); color:var(--text);}
+    @media (hover: hover){
+      nav.nav-links a:hover{background:rgba(91,141,239,0.15);}
+    }
 
     .hero{padding:20px 20px 56px; gap:28px;}
     .hero-copy h1{font-size:clamp(1.9rem, 8vw, 2.4rem);}
     .hero-copy p{font-size:1rem;}
     .cta-row{margin-top:24px;}
-    .cta-row .btn{flex:1 1 140px; justify-content:center;}
+    .cta-row .btn{flex:1 1 140px; justify-content:center; text-align:center;}
 
     section.block{padding:64px 20px;}
     .block-head{margin-bottom:28px;}
@@ -902,12 +1557,10 @@
     .price-toggle{width:100%; justify-content:space-between;}
     .price-label{flex:1; width:auto; font-size:0.78rem;}
 
-    footer{padding:48px 20px 100px;}
-    .team-section{padding-bottom:36px; margin-bottom:36px;}
-    .team-grid{gap:10px;}
-    .team-photo{width:80px; height:80px; margin-bottom:10px;}
-    .team-name{font-size:0.76rem; line-height:1.3;}
-    .team-role{font-size:0.68rem; line-height:1.3;}
+    .contact{padding:48px 0 40px;}
+    .contact .wrap{padding:0 20px;}
+    .site-footer{padding:0 20px 100px;}
+    .page > section.block:first-child{padding-top:36px;}
     .footer-top{gap:24px; margin-bottom:32px;}
     .footer-top h2{max-width:none;}
     .socials{display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%;}
@@ -924,33 +1577,53 @@
 
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; scroll-behavior:auto !important;}
+    .page, .fa-cell, .fa-bar i, .fa-dot, .v-cell, .tm-card{animation:none !important;}
   }
 </style>
+<script>
+  (function(){
+    var h = (location.hash || '').replace(/^#\/?/, '').toLowerCase();
+    var alias = { tentang:'home', konten:'home', kontak:'home', portofolio:'commission', komisi:'commission' };
+    if (typeof alias[h] === 'string') h = alias[h];
+    var name = /^[a-z0-9][a-z0-9-]*$/.test(h) ? h : 'home';
+    var st = document.createElement('style');
+    st.id = 'routeStyle';
+    st.textContent = '.page{display:none}.page[data-page="' + name + '"]{display:block}';
+    document.head.appendChild(st);
+    document.documentElement.setAttribute('data-page', name);
+  })();
+</script>
 </head>
 <body>
 
 <header>
-  <div class="brand">
-    <img src="profile.png" alt="Keicyla Icelin" class="brand-photo">
+  <a class="brand" href="#home" aria-label="Home">
+    <img src="profile.png" alt="Keicyla Icelin" class="brand-photo" data-fallback="data:image/jpeg;base64,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">
     Keicyla<span>Icelin</span>
-  </div>
-  <nav class="nav-links">
-    <a href="#tentang" data-tip="Let Know me!">About</a>
-    <a href="#konten" data-tip="Check My Videos!">Content</a>
-    <a href="#portofolio" data-tip="My Works!">Portfolio</a>
-    <a href="#komisi" data-tip="Order now!">Services</a>
-    <a href="#kontak" data-tip="Social Media!">Contact</a>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#home" data-tip="Balik ke awal!">Home</a>
+    <a href="#character" data-tip="Kenalan karakter!">Character</a>
+    <a href="#fanart" data-tip="Lihat fanart!">Fanart</a>
+    <a href="#commission" data-tip="Order jasa!">Commission</a>
+    <a href="#team" data-tip="Kenalan tim!">Keyla Team</a>
   </nav>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
+<main id="main">
+
+<div class="page" data-page="home">
 <section class="hero">
   <div class="hero-copy">
     <div class="kicker">Streamer &amp; Content Creator</div>
-    <h1>Game, Cover And Roleplay! <em>Keicyla Icelin</em></h1>
+    <h1>Game, Cover and Roleplay! <em>Keicyla Icelin</em></h1>
     <p>Playing Game, Cover Song, And Roleplay! You'll find me grinding levels, editing videos, or cozying up with a book.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://www.youtube.com/channel/UCGAC6ThyAlSD2FzqvTxKbcA/join" target="_blank" rel="noopener" data-tip="Gabung yuk!">Join Membership</a>
-      <a class="btn btn-ghost" href="https://tako.id/keicylaicelin" target="_blank" rel="noopener" data-tip="Traktir aku~">Donate</a>
+      <a class="btn btn-ghost" href="https://tako.id/keicylaicelin" target="_blank" rel="noopener" data-tip="Traktir aku~">Donasi</a>
     </div>
   </div>
   <div class="hero-video">
@@ -983,88 +1656,118 @@
 </section>
 
 <section class="block" id="konten">
-  <div class="block-head">
-    <div>
-      <h2>My Content</h2>
-      <p>Here are a few videos and live streams from my content!</p>
+    <div class="fa-head">
+      <div class="fa-tag">LATEST UPLOADS</div>
+      <h2 class="fa-title">My Content</h2>
+      <p class="fa-sub" style="margin-bottom:0">Here are a few videos and live streams from my content!</p>
     </div>
-  </div>
-  <div class="grid">
-
-    <a class="tile" href="https://youtu.be/qOfhe-lXsSo" target="_blank" rel="noopener">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/qOfhe-lXsSo/hqdefault.jpg" alt="Judul video 1">
-        <div class="play" data-tip="Tonton yuk!">▶</div>
+    <div class="v-grid">
+      <div class="v-cell" style="--i:0">
+        <a class="tile" href="https://youtu.be/qOfhe-lXsSo" target="_blank" rel="noopener">
+          <div class="v-inner">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/qOfhe-lXsSo/hqdefault.jpg" alt="Judul video 1" loading="lazy" decoding="async">
+              <div class="play" data-tip="Tonton yuk!">&#9654;</div>
+              <span class="v-slot">01</span>
+            </div>
+            <div class="meta">
+              <div class="tag">YouTube</div>
+              <h3>Menggapai Mentari Original Song By Aretha Kirana</h3>
+              <div class="sub">Cover By Keicyla Icelin</div>
+            </div>
+          </div>
+        </a>
       </div>
-      <div class="meta">
-        <div class="tag">YouTube</div>
-        <h3>Menggapai Mentari Original Song By Aretha Kirana</h3>
-        <div class="sub">Cover By Keicyla Icelin</div>
+      <div class="v-cell" style="--i:1">
+        <a class="tile" href="https://youtu.be/gkTEaJb0cZs" target="_blank" rel="noopener">
+          <div class="v-inner">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/gkTEaJb0cZs/hqdefault.jpg" alt="Judul video 2" loading="lazy" decoding="async">
+              <div class="play" data-tip="Tonton yuk!">&#9654;</div>
+              <span class="v-slot">02</span>
+            </div>
+            <div class="meta">
+              <div class="tag">YouTube</div>
+              <h3>ESTETIKA REAKTAN  || PROJECT S:1 ARC 2</h3>
+              <div class="sub">Teaser Roleplay Minecraft Iris Asteritha Project S:1 ARC 2</div>
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
-
-    <a class="tile" href="https://youtu.be/gkTEaJb0cZs" target="_blank" rel="noopener">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/gkTEaJb0cZs/hqdefault.jpg" alt="Judul video 2">
-        <div class="play" data-tip="Tonton yuk!">▶</div>
+      <div class="v-cell" style="--i:2">
+        <a class="tile" href="https://youtu.be/J0I5kry3uXA" target="_blank" rel="noopener">
+          <div class="v-inner">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/J0I5kry3uXA/hqdefault.jpg" alt="Judul video 3" loading="lazy" decoding="async">
+              <div class="play" data-tip="Tonton yuk!">&#9654;</div>
+              <span class="v-slot">03</span>
+            </div>
+            <div class="meta">
+              <div class="tag">YouTube</div>
+              <h3>Adrenaline Original Song By TrySail</h3>
+              <div class="sub">Cover By Keicyla Icelin</div>
+            </div>
+          </div>
+        </a>
       </div>
-      <div class="meta">
-        <div class="tag">YouTube</div>
-        <h3>ESTETIKA REAKTAN  || PROJECT S:1 ARC 2</h3>
-        <div class="sub">Teaser Roleplay Minecraft Iris Asteritha Project S:1 ARC 2</div>
+      <div class="v-cell" style="--i:3">
+        <a class="tile" href="https://youtu.be/3EsZ3-st6n8" target="_blank" rel="noopener">
+          <div class="v-inner">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/3EsZ3-st6n8/hqdefault.jpg" alt="Judul video 4" loading="lazy" decoding="async">
+              <div class="play" data-tip="Tonton yuk!">&#9654;</div>
+              <span class="v-slot">04</span>
+            </div>
+            <div class="meta">
+              <div class="tag">YouTube</div>
+              <h3>Perisai Jitu Original Song By Moona Hoshinova</h3>
+              <div class="sub">Cover By Keicyla Icelin</div>
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
-
-    <a class="tile" href="https://youtu.be/J0I5kry3uXA" target="_blank" rel="noopener">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/J0I5kry3uXA/hqdefault.jpg" alt="Judul video 3">
-        <div class="play" data-tip="Tonton yuk!">▶</div>
+      <div class="v-cell" style="--i:4">
+        <a class="tile" href="https://youtu.be/55RbmpvecsA" target="_blank" rel="noopener">
+          <div class="v-inner">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/55RbmpvecsA/hqdefault.jpg" alt="Judul video 5" loading="lazy" decoding="async">
+              <div class="play" data-tip="Tonton yuk!">&#9654;</div>
+              <span class="v-slot">05</span>
+            </div>
+            <div class="meta">
+              <div class="tag">YouTube</div>
+              <h3>AKU TIBA - TIBA JADI KOMENTATOR DI LIVE STREAMING  @setyawang  || CAKEY'S TWISTED BAKERY</h3>
+              <div class="sub">Funny Clips In Setyawan Live Streaming</div>
+            </div>
+          </div>
+        </a>
       </div>
-      <div class="meta">
-        <div class="tag">YouTube</div>
-        <h3>Adrenaline Original Song By TrySail</h3>
-        <div class="sub">Cover By Keicyla Icelin</div>
+      <div class="v-cell" style="--i:5">
+        <a class="tile" href="https://youtu.be/fak7VvP_EQA" target="_blank" rel="noopener">
+          <div class="v-inner">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/fak7VvP_EQA/hqdefault.jpg" alt="Judul video 6" loading="lazy" decoding="async">
+              <div class="play" data-tip="Tonton yuk!">&#9654;</div>
+              <span class="v-slot">06</span>
+            </div>
+            <div class="meta">
+              <div class="tag">YouTube</div>
+              <h3>Bombanana!</h3>
+              <div class="sub">KUMPULAN MONYET BEREVOLUSI MENGJINAKKAN BOM!! 🐒😏</div>
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
-
-    <a class="tile" href="https://youtu.be/3EsZ3-st6n8" target="_blank" rel="noopener">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/3EsZ3-st6n8/hqdefault.jpg" alt="Judul video 4">
-        <div class="play" data-tip="Tonton yuk!">▶</div>
-      </div>
-      <div class="meta">
-        <div class="tag">YouTube</div>
-        <h3>Perisai Jitu Original Song By Moona Hoshinova</h3>
-        <div class="sub">Cover By Keicyla Icelin</div>
-      </div>
-    </a>
-
-    <a class="tile" href="https://youtu.be/YLDNwL7I5JQ" target="_blank" rel="noopener">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/YLDNwL7I5JQ/hqdefault.jpg" alt="Judul video 5">
-        <div class="play" data-tip="Tonton yuk!">▶</div>
-      </div>
-      <div class="meta">
-        <div class="tag">YouTube</div>
-        <h3>Minecraft Horror</h3>
-        <div class="sub">WORLD INI UDAH GAK AMAN! ADA SOSOK MISTERIUS YANG MULAI MENEROR KITA!! 😭😱</div>
-      </div>
-    </a>
-
-    <a class="tile" href="https://youtu.be/fak7VvP_EQA" target="_blank" rel="noopener">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/fak7VvP_EQA/hqdefault.jpg" alt="Judul video 6">
-        <div class="play" data-tip="Tonton yuk!">▶</div>
-      </div>
-      <div class="meta">
-        <div class="tag">YouTube</div>
-        <h3>Bombanana!</h3>
-        <div class="sub">KUMPULAN MONYET BEREVOLUSI MENGJINAKKAN BOM!! 🐒😏</div>
-      </div>
-    </a>
-
-  </div>
-</section>
+    </div>
+    <div class="tag-row tag-row-center">
+      <span class="tag-chip">Gaming campaigns</span>
+      <span class="tag-chip">Brand collaborations</span>
+      <span class="tag-chip">Creative projects</span>
+      <span class="tag-chip">Livestream sponsorships</span>
+      <span class="tag-chip">Short & Video integrations</span>
+      <span class="tag-chip">Content Video sponsorships</span>
+    </div>
+  </section>
 
 <section class="block inquiry" id="kolaborasi">
   <div class="inquiry-box">
@@ -1073,11 +1776,396 @@
   </div>
 </section>
 
-<section class="block" id="portofolio">
+<section class="contact" id="kontak">
+  <div class="wrap">
+
+    <div class="footer-top">
+      <h2>Look around about my social media? Let's connect!</h2>
+      <div class="socials">
+        <a class="social-link" href="https://www.youtube.com/channel/UCGAC6ThyAlSD2FzqvTxKbcA/join" target="_blank" rel="noopener" data-tip="Subscribe dong!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.95-1.9-.95-2.36-1.01C16.9 2.5 12 2.5 12 2.5h-.01s-4.9 0-8.2.33c-.46.06-1.46.06-2.36 1.01C.73 4.56.5 6.2.5 6.2S.26 8.12.26 10.05v1.8c0 1.93.24 3.85.24 3.85s.23 1.64.94 2.36c.9.95 2.08.92 2.6 1.02 1.89.18 8 .24 8 .24s4.9-.01 8.2-.33c.46-.06 1.46-.06 2.36-1.01.71-.72.94-2.36.94-2.36s.24-1.92.24-3.85v-1.8c0-1.93-.24-3.85-.24-3.85zM9.75 14.85V7.65l6.27 3.6-6.27 3.6z"/></svg>
+          YouTube
+        </a>
+        <a class="social-link" href="https://www.tiktok.com/@keicylaicelin" target="_blank" rel="noopener" data-tip="Follow yuk!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.6a3.1 3.1 0 1 1-2.2-2.97V9.3a6.3 6.3 0 1 0 5.4 6.24V8.1a7.3 7.3 0 0 0 4.4 1.47V6.3a4.1 4.1 0 0 1-4.4-4.3z"/></svg>
+          TikTok
+        </a>
+        <a class="social-link" href="https://www.instagram.com/keynevr" target="_blank" rel="noopener" data-tip="Follow IG aku!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.64.42 1.37.47 2.43C21.99 8.94 22 9.28 22 12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.16 1.77 4.9 4.9 0 0 1-1.77 1.16c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.16-1.77a4.9 4.9 0 0 1 1.77-1.16c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.97.04-1.5.2-1.85.34-.47.18-.8.4-1.15.75-.35.35-.57.68-.75 1.15-.14.35-.3.88-.34 1.85C3.81 9 3.8 9.32 3.8 12s.01 3 .06 4.05c.04.97.2 1.5.34 1.85.18.47.4.8.75 1.15.35.35.68.57 1.15.75.35.14.88.3 1.85.34 1.05.05 1.37.06 4.05.06s3-.01 4.05-.06c.97-.04 1.5-.2 1.85-.34.47-.18.8-.4 1.15-.75.35-.35.57-.68.75-1.15.14-.35.3-.88.34-1.85.05-1.05.06-1.37.06-4.05s-.01-3-.06-4.05c-.04-.97-.2-1.5-.34-1.85a3.1 3.1 0 0 0-.75-1.15 3.1 3.1 0 0 0-1.15-.75c-.35-.14-.88-.3-1.85-.34C15 3.81 14.68 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 1 0 10.3 5.15 5.15 0 0 1 0-10.3zm0 1.8a3.35 3.35 0 1 0 0 6.7 3.35 3.35 0 0 0 0-6.7zm5.35-1.99a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+          Instagram
+        </a>
+        <a class="social-link" href="https://www.facebook.com/keynevr21" target="_blank" rel="noopener" data-tip="Add aku!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.77l-.44 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          Facebook
+        </a>
+        <a class="social-link" href="https://x.com/keynevr" target="_blank" rel="noopener" data-tip="Follow yuk!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.9 2h6.4l4.4 5.8L18.9 2zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20z"/></svg>
+          Twitter
+        </a>
+        <a class="social-link" href="https://whatsapp.com/channel/0029Vaw0afb2P59kP2F4Es1U" target="_blank" rel="noopener" data-tip="Join saluran!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7-1.87-1.87-4.35-2.91-7.02-2.91zm0 18.07h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.14.82.84-3.06-.19-.31a8.16 8.16 0 0 1-1.25-4.35c0-4.52 3.68-8.2 8.24-8.2 2.2 0 4.27.86 5.82 2.42a8.15 8.15 0 0 1 2.41 5.8c0 4.52-3.68 8.2-8.24 8.2zm4.51-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.66-1.17.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+          WhatsApp Saluran
+        </a>
+        <a class="social-link" href="https://discord.gg/9UwsFx39Zs" target="_blank" rel="noopener" data-tip="Gabung server!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.86-.61 1.24a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.24.08.08 0 0 0-.08-.04c-1.7.29-3.34.8-4.89 1.52a.07.07 0 0 0-.03.03C.53 8.6-.32 12.72.1 16.79a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.04.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1 0-.13c.13-.09.25-.19.37-.28a.07.07 0 0 1 .08 0c3.93 1.8 8.18 1.8 12.06 0a.07.07 0 0 1 .08 0c.12.1.24.2.37.29a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.9a.08.08 0 0 0-.04.11c.36.7.78 1.36 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.04.08.08 0 0 0 .03-.06c.5-4.7-.83-8.79-3.5-12.4a.06.06 0 0 0-.03-.02zM8.02 14.33c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.33-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.33-.95 2.42-2.16 2.42z"/></svg>
+          Discord
+        </a>
+        <a class="social-link" href="https://tako.id/keicylaicelin" target="_blank" rel="noopener" data-tip="Traktir aku~">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10.1-9.1C.36 9.24 1.2 5.9 4.2 4.7c2.1-.85 4.3-.1 5.6 1.5.5.6 1.5.6 2 0 1.3-1.6 3.5-2.35 5.6-1.5 3 1.2 3.84 4.54 2.3 7.2C19.5 16.4 12 21 12 21z"/></svg>
+          Donasi
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<div class="page" data-page="character">
+  <section class="block char-head">
+    <div class="block-head">
+      <div>
+        <h2>Character</h2>
+        <p class="char-intro">This is my official original character. Alongside general gaming, I spend a lot of time doing Minecraft roleplay, where all of my RP characters are subtle adaptations of my main OC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block char-section">
+    <h3 class="char-title">Original Character</h3>
+    <div class="char char-center">
+      <div class="char-photo pslider" data-pslider>
+        <div class="pslider-track" tabindex="0" role="region" aria-label="Keicyla Icelin">
+          <div class="pslide"><img src="https://i.ibb.co.com/cSNp2ZDn/IMG-1875.png" alt="Keicyla Icelin"></div>
+          <div class="pslide"><img src="https://i.ibb.co.com/cKf7QPGC/Artboard4.png" alt="Keicyla Icelin"></div>
+          <div class="pslide"><img src="https://i.ibb.co.com/MDNqy6zr/Komis-Keicyla-fb-20260922171835.png" alt="Keicyla Icelin"></div>
+        </div>
+        <button type="button" class="pslider-btn prev" aria-label="Foto sebelumnya">&#8249;</button>
+        <button type="button" class="pslider-btn next" aria-label="Foto berikutnya">&#8250;</button>
+        <div class="pslider-dots"></div>
+      </div>
+      <div class="char-info">
+        <h3 class="char-name">Keicyla Icelin</h3>
+        <p class="char-desc">Keicyla Icelin is the original character created by Keyla. Before stepping into content creation and streaming, Keyla originally debuted as a VTuber. From her early VTubing days to her current avatar as a streamer, her characters have always featured a signature blue design, a reflection of her love for the color blue.</p>
+        <p class="char-desc">Keicyla story is shrouded in nighttime mystery. She is a creature of the dark who comes alive when the sun sets. She sustains herself by feeding on human souls while they sleep. But her touch is not purely terrifying in exchange for a soul, she leaves behind dreams so blissful and intoxicating that her victims are left craving more.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block char-section" id="rpSelect">
+    <h3 class="char-title">Roleplay Characters</h3>
+    <div class="rp-panel">
+      <div class="rp-head">
+        <span>Character Select</span>
+        <span class="rp-count" data-counter="rp">1 / 3</span>
+      </div>
+      <div class="rs-stage" data-select="rp">
+        <button type="button" class="cslider-side prev" aria-label="Karakter sebelumnya">&#8249;</button>
+        <div class="rs-track" tabindex="0" role="region" aria-label="Pilih karakter roleplay">
+        <a class="rs-card" href="#rp-1" aria-label="Lihat profil Iris Asteritha">
+          <div class="rs-frame">
+            <div class="rs-photo"><img src="https://i.ibb.co.com/39m73b4q/no-wm.png" alt="Iris Asteritha" draggable="false"></div>
+          </div>
+          <div class="rs-name">Iris Asteritha</div>
+          <div class="rs-sub">Project S:1</div>
+        </a>
+        <a class="rs-card" href="#rp-2" aria-label="Lihat profil Lunalethal Denia">
+          <div class="rs-frame">
+            <div class="rs-photo"><img src="https://i.ibb.co.com/4RZxQysz/Untitled349-20260627103303.png" alt="Lunalethal Denia" draggable="false"></div>
+          </div>
+          <div class="rs-name">Lunalethal Denia</div>
+          <div class="rs-sub">Refheim Online</div>
+        </a>
+        <a class="rs-card" href="#rp-3" aria-label="Lihat profil Sabrina Kassandra">
+          <div class="rs-frame">
+            <div class="rs-photo"><img src="https://i.ibb.co.com/C5Hmmm3t/Tak-berjudul253-20260131151141.png" alt="Sabrina Kassandra" draggable="false"></div>
+          </div>
+          <div class="rs-name">Sabrina Kassandra</div>
+          <div class="rs-sub">Santuy Fight For Dream</div>
+        </a>
+        <a class="rs-card" href="#rp-4" aria-label="Lihat profil Victoria Hawthorne">
+          <div class="rs-frame">
+            <div class="rs-photo"><img src="Coming Soon" alt="Victoria Hawthorne" draggable="false"></div>
+          </div>
+          <div class="rs-name">Victoria Hawthorne</div>
+          <div class="rs-sub">Coming Soon</div>
+        </a>
+        </div>
+        <button type="button" class="cslider-side next" aria-label="Karakter berikutnya">&#8250;</button>
+      </div>
+      <p class="rs-hint">Click the avatar to inspect character profile.</p>
+    </div>
+  </section>
+
+  <section class="block fanart">
+    <h3>Did you create fan art for me?</h3>
+    <p>You can submit your links using the button below, tag me on Instagram or TikTok, or send them directly to our Discord server!</p>
+    <div class="fanart-buttons">
+      <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1PI_CpfXhBgbLrdiXEU5ND4Ed2eXxSXeu?usp=drive_link" target="_blank" rel="noopener" data-tip="Kirim fanart-mu!">Click link fanart</a>
+      <a class="social-link" href="https://www.instagram.com/keynevr" target="_blank" rel="noopener" data-tip="Follow IG aku!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.64.42 1.37.47 2.43C21.99 8.94 22 9.28 22 12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.16 1.77 4.9 4.9 0 0 1-1.77 1.16c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.16-1.77a4.9 4.9 0 0 1 1.77-1.16c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.97.04-1.5.2-1.85.34-.47.18-.8.4-1.15.75-.35.35-.57.68-.75 1.15-.14.35-.3.88-.34 1.85C3.81 9 3.8 9.32 3.8 12s.01 3 .06 4.05c.04.97.2 1.5.34 1.85.18.47.4.8.75 1.15.35.35.68.57 1.15.75.35.14.88.3 1.85.34 1.05.05 1.37.06 4.05.06s3-.01 4.05-.06c.97-.04 1.5-.2 1.85-.34.47-.18.8-.4 1.15-.75.35-.35.57-.68.75-1.15.14-.35.3-.88.34-1.85.05-1.05.06-1.37.06-4.05s-.01-3-.06-4.05c-.04-.97-.2-1.5-.34-1.85a3.1 3.1 0 0 0-.75-1.15 3.1 3.1 0 0 0-1.15-.75c-.35-.14-.88-.3-1.85-.34C15 3.81 14.68 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 1 0 10.3 5.15 5.15 0 0 1 0-10.3zm0 1.8a3.35 3.35 0 1 0 0 6.7 3.35 3.35 0 0 0 0-6.7zm5.35-1.99a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+          Instagram
+        </a>
+      <a class="social-link" href="https://www.tiktok.com/@keicylaicelin" target="_blank" rel="noopener" data-tip="Follow yuk!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.6a3.1 3.1 0 1 1-2.2-2.97V9.3a6.3 6.3 0 1 0 5.4 6.24V8.1a7.3 7.3 0 0 0 4.4 1.47V6.3a4.1 4.1 0 0 1-4.4-4.3z"/></svg>
+          TikTok
+        </a>
+      <a class="social-link" href="https://discord.gg/9UwsFx39Zs" target="_blank" rel="noopener" data-tip="Gabung server!">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.86-.61 1.24a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.24.08.08 0 0 0-.08-.04c-1.7.29-3.34.8-4.89 1.52a.07.07 0 0 0-.03.03C.53 8.6-.32 12.72.1 16.79a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.04.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1 0-.13c.13-.09.25-.19.37-.28a.07.07 0 0 1 .08 0c3.93 1.8 8.18 1.8 12.06 0a.07.07 0 0 1 .08 0c.12.1.24.2.37.29a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.9a.08.08 0 0 0-.04.11c.36.7.78 1.36 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.04.08.08 0 0 0 .03-.06c.5-4.7-.83-8.79-3.5-12.4a.06.06 0 0 0-.03-.02zM8.02 14.33c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.33-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.33-.95 2.42-2.16 2.42z"/></svg>
+          Discord
+        </a>
+    </div>
+  </section>
+</div>
+
+<div class="page" data-page="rp-1" data-parent="character" data-title="Iris Asteritha">
+  <section class="block profile">
+    <a class="back-link" href="#character">&#8592; Back to Select Characters</a>
+
+    <div class="char">
+      <div class="char-left">
+        <div class="char-photo pslider" data-pslider>
+          <div class="pslider-track" tabindex="0" role="region" aria-label="Foto Iris Asteritha">
+          <div class="pslide"><img src="https://i.ibb.co.com/39m73b4q/no-wm.png" alt="Iris Asteritha foto 1"></div>
+          <div class="pslide"><img src="https://i.ibb.co.com/Mx28W0Jd/keicyla-comms.jpg" alt="Iris Asteritha foto 2"></div>
+          <div class="pslide"><img src="https://i.ibb.co.com/ksW5sr7Q/Ilustrasi31-1.png" alt="Iris Asteritha foto 3"></div>
+          </div>
+          <button type="button" class="pslider-btn prev" aria-label="Foto sebelumnya">&#8249;</button>
+          <button type="button" class="pslider-btn next" aria-label="Foto berikutnya">&#8250;</button>
+          <div class="pslider-dots"></div>
+        </div>
+        <div class="rp-logo"><img src="https://i.ibb.co.com/pvxdGVCx/image.png" alt="Project S:1"></div>
+      </div>
+      <div class="char-info">
+        <h2 class="char-name">Iris Asteritha</h2>
+        <div class="tag-row">
+          <span class="tag-chip">Genius</span>
+          <span class="tag-chip">Doctor</span>
+          <span class="tag-chip">Unfiltered</span>
+          <span class="tag-chip">Handsome Guy Lover</span>
+        </div>
+        <table class="char-table">
+          <tr><th scope="row">Date of Birth</th><td>February 2nd</td></tr>
+          <tr><th scope="row">Age</th><td>24</td></tr>
+          <tr><th scope="row">Height</th><td>4.76 ft</td></tr>
+          <tr><th scope="row">Zodiac</th><td>Aquarius</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <h3>Backstory</h3>
+      <p>[BACKSTORY_1]</p>
+    </div>
+
+    <div class="profile-block">
+      <h3>It's in the series</h3>
+      <div class="series-list">
+        <div class="series-item">
+          <div class="series-name">Project S:1</div>
+          <div class="char-links">
+            <a class="btn btn-primary" href="https://youtube.com/playlist?list=PL7zTfLKwPPZLos63uykcEmwTRIKLb_vbi&si=6DlOYMCpOIRdukNV" target="_blank" rel="noopener">Arc 2</a>
+            <a class="btn btn-ghost" href="https://youtube.com/playlist?list=PLVIgCrEpsjYw&si=-a4YbgdJqJ3V8ZEv" target="_blank" rel="noopener">Arc 3</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" data-page="rp-2" data-parent="character" data-title="Lunalethal Denia">
+  <section class="block profile">
+    <a class="back-link" href="#character">&#8592; Back to Select Characters</a>
+
+    <div class="char">
+      <div class="char-left">
+        <div class="char-photo pslider" data-pslider>
+          <div class="pslider-track" tabindex="0" role="region" aria-label="Foto Lunalethal Denia">
+          <div class="pslide"><img src="karakter-rp-2-1.png" alt="Lunalethal Denia foto 1"></div>
+          <div class="pslide"><img src="karakter-rp-2-2.png" alt="Lunalethal Denia foto 2"></div>
+          <div class="pslide"><img src="karakter-rp-2-3.png" alt="Lunalethal Denia foto 3"></div>
+          </div>
+          <button type="button" class="pslider-btn prev" aria-label="Foto sebelumnya">&#8249;</button>
+          <button type="button" class="pslider-btn next" aria-label="Foto berikutnya">&#8250;</button>
+          <div class="pslider-dots"></div>
+        </div>
+        <div class="rp-logo"><img src="logo-rp-2.png" alt="Logo roleplay"></div>
+      </div>
+      <div class="char-info">
+        <h2 class="char-name">Lunalethal Denia</h2>
+        <div class="tag-row">
+          <span class="tag-chip">Pintar</span>
+          <span class="tag-chip">Yandare</span>
+          <span class="tag-chip">Kaku</span>
+        </div>
+        <table class="char-table">
+          <tr><th scope="row">Date of Birth</th><td>March 16</td></tr>
+          <tr><th scope="row">Age</th><td>16</td></tr>
+          <tr><th scope="row">Height</th><td>165 cm</td></tr>
+          <tr><th scope="row">Zodiac</th><td>Pisces</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <h3>Backstory</h3>
+      <p>[BACKSTORY_2]</p>
+    </div>
+
+    <div class="profile-block">
+      <h3>It's in the series</h3>
+      <div class="series-list">
+        <div class="series-item">
+          <div class="series-name">Refheim Online</div>
+          <div class="char-links">
+            <a class="btn btn-primary" href="https://www.youtube.com/playlist?list=PLT0Pb4V-LPOU" target="_blank" rel="noopener">Arc 1</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" data-page="rp-3" data-parent="character" data-title="Sabrina Kassandra">
+  <section class="block profile">
+    <a class="back-link" href="#character">&#8592; Kembali ke Character</a>
+
+    <div class="char">
+      <div class="char-left">
+        <div class="char-photo pslider" data-pslider>
+          <div class="pslider-track" tabindex="0" role="region" aria-label="Foto Sabrina Kassandra">
+          <div class="pslide"><img src="karakter-rp-3-1.png" alt="Sabrina Kassandra foto 1"></div>
+          <div class="pslide"><img src="karakter-rp-3-2.png" alt="Sabrina Kassandra foto 2"></div>
+          <div class="pslide"><img src="karakter-rp-3-3.png" alt="Sabrina Kassandra foto 3"></div>
+          </div>
+          <button type="button" class="pslider-btn prev" aria-label="Foto sebelumnya">&#8249;</button>
+          <button type="button" class="pslider-btn next" aria-label="Foto berikutnya">&#8250;</button>
+          <div class="pslider-dots"></div>
+        </div>
+        <div class="rp-logo"><img src="logo-rp-3.png" alt="Logo roleplay"></div>
+      </div>
+      <div class="char-info">
+        <h2 class="char-name">Sabrina Kassandra</h2>
+        <div class="tag-row">
+          <span class="tag-chip">Pintar</span>
+          <span class="tag-chip">Tsundere</span>
+          <span class="tag-chip">Kaku</span>
+        </div>
+        <table class="char-table">
+          <tr><th scope="row">Tanggal Lahir</th><td>[TANGGAL_LAHIR_3]</td></tr>
+          <tr><th scope="row">Umur</th><td>[UMUR_3]</td></tr>
+          <tr><th scope="row">Tinggi</th><td>[TINGGI_3]</td></tr>
+          <tr><th scope="row">Zodiak</th><td>[ZODIAK_3]</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <h3>Backstory</h3>
+      <p>[BACKSTORY_3]</p>
+    </div>
+
+    <div class="profile-block">
+      <h3>Ada di Series</h3>
+      <div class="series-list">
+        <div class="series-item">
+          <div class="series-name">[NAMA_SERIES_3]</div>
+          <div class="char-links">
+            <a class="btn btn-primary" href="[LINK_RP3_ARC1]" target="_blank" rel="noopener">Arc 1</a>
+            <a class="btn btn-ghost" href="[LINK_RP3_ARC2]" target="_blank" rel="noopener">Arc 2</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" data-page="fanart">
+  <section class="block fa">
+    <div class="fa-head">
+      <div class="fa-tag">FANART GALLERY</div>
+      <h2 class="fa-title">Fanart From KEICILIK</h2>
+      <p class="fa-sub">Gallery Art From You Guys!</p>
+      <div class="fa-hud" aria-hidden="true">
+        <span>KOLEKSI</span>
+        <div class="fa-bar"><i></i></div>
+        <span class="fa-count"><b id="faCount">10</b> / <b id="faTotal">10</b></span>
+      </div>
+    </div>
+
+    <div class="fa-grid">
+      <div class="fa-cell" style="--i:0">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 1">
+          <span class="fa-img"><img src="https://i.ibb.co.com/Csz1MQV0/Lisa-1-Double-Glasses-Fan-photo-2.webp" alt="Fanart 1" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">01</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:1">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 2">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_2]" alt="Fanart 2" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">02</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:2">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 3">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_3]" alt="Fanart 3" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">03</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:3">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 4">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_4]" alt="Fanart 4" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">04</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:4">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 5">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_5]" alt="Fanart 5" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">05</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:5">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 6">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_6]" alt="Fanart 6" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">06</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:6">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 7">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_7]" alt="Fanart 7" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">07</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:7">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 8">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_8]" alt="Fanart 8" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">08</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:8">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 9">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_9]" alt="Fanart 9" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">09</span>
+        </button>
+      </div>
+      <div class="fa-cell" style="--i:9">
+        <button type="button" class="fa-card" data-by="" aria-label="Buka fanart 10">
+          <span class="fa-img"><img src="[LINK_GAMBAR_FANART_10]" alt="Fanart 10" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <span class="fa-slot">10</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="fa-note"><span class="fa-dot" aria-hidden="true"></span>This page gets refreshed every month!</div>
+  </section>
+</div>
+
+<div class="page" data-page="commission">
+<section class="block">
   <div class="block-head">
     <div>
       <h2>Portofolio</h2>
-      <p>My Portofolio Desain, Live Chat CSS, Editing Video, and Website.</p>
+      <p>Take a look at all of my work right here!</p>
     </div>
   </div>
 
@@ -1122,17 +2210,72 @@
       </div>
     </div>
   </div>
+</section>
 
-<section class="block" id="komisi">
+<section class="block" id="software">
+  <div class="block-head">
+    <div>
+      <h2>Software I Use</h2>
+      <p>The tools behind my editing, design, and coding work.</p>
+    </div>
+  </div>
+  <div class="software-grid">
+
+    <div class="software-card">
+      <div class="software-icon" aria-hidden="true">Pr</div>
+      <div class="software-tag">Video Editing</div>
+      <h3>Adobe Premiere Pro</h3>
+      <p>Used for video editing cutting, arranging, and polishing footage into a finished video.</p>
+    </div>
+
+    <div class="software-card">
+      <div class="software-icon" aria-hidden="true">Cc</div>
+      <div class="software-tag">SFX &amp; Animation Editing</div>
+      <h3>CapCut</h3>
+      <p>Used for editing sound effects (SFX) and animations to add energy and personality to videos.</p>
+    </div>
+
+    <div class="software-card">
+      <div class="software-icon" aria-hidden="true">Ps</div>
+      <div class="software-tag">Design</div>
+      <h3>Adobe Photoshop</h3>
+      <p>Used for design work, from detailed image editing to polished graphics.</p>
+    </div>
+
+    <div class="software-card">
+      <div class="software-icon" aria-hidden="true">Cv</div>
+      <div class="software-tag">Design</div>
+      <h3>Canva</h3>
+      <p>Used for design as well, ideal for creating clean layouts and graphics quickly.</p>
+    </div>
+
+    <div class="software-card">
+      <div class="software-icon" aria-hidden="true">Fg</div>
+      <div class="software-tag">Website &amp; Live Chat Design</div>
+      <h3>Figma</h3>
+      <p>Used for designing websites and live chat layouts before they are built.</p>
+    </div>
+
+    <div class="software-card">
+      <div class="software-icon" aria-hidden="true">VS</div>
+      <div class="software-tag">Website &amp; Live Chat Coding</div>
+      <h3>Visual Studio Code</h3>
+      <p>Used for coding websites and writing live chat CSS.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="block">
   <div class="block-head">
     <div>
       <h2>Open Commission</h2>
-      <p>I offer several commission packages below, or feel free to DM me for custom requests! Tools I use: Photoshop, CapCut, Adobe Premiere Pro, Figma, Canva, and VS Code. Programming Languages: Python, HTML, and Pascal.</p>
+      <p>I am open commission you cant choose your packet or dm me for custom requests.</p>
     </div>
     <div class="price-toggle">
-      <button type="button" id="priceLeft" class="price-arrow" aria-label="Price" data-tip="Switch Price">‹</button>
+      <button type="button" id="priceLeft" class="price-arrow" aria-label="Harga sebelumnya" data-tip="Switch Price">‹</button>
       <span id="priceLabel" class="price-label">Local Price</span>
-      <button type="button" id="priceRight" class="price-arrow" aria-label="Price" data-tip="Switch Price">›</button>
+      <button type="button" id="priceRight" class="price-arrow" aria-label="Harga berikutnya" data-tip="Switch Price">›</button>
     </div>
   </div>
   <div class="commission-grid">
@@ -1216,9 +2359,6 @@
     </div>
 
   </div>
-</section>
-
-  </div>
   <div class="tos">
     <h3>Terms of Service (TOS)</h3>
     <p class="tos-note">By ordering a commission, you agree to the following terms and conditions.</p>
@@ -1246,84 +2386,93 @@
     </div>
   </div>
 </section>
+</div>
 
-<footer id="kontak">
-  <div class="wrap">
-
-    <div class="team-section">
-      <h3 class="team-title">Keyla Team</h3>
-      <div class="team-grid">
-
-        <a class="team-member" href="https://www.youtube.com/@setyawang" target="_blank" rel="noopener" data-tip="Cek sosmednya!">
-          <div class="team-photo">
-            <img src="png simple bg.png" alt="Setyawan">
-          </div>
-          <div class="team-name">Setyawan</div>
-          <div class="team-role">Animator And Scheduler</div>
-        </a>
-
-        <a class="team-member" href="http://x.com/NyxDraven" target="_blank" rel="noopener" data-tip="Cek sosmednya!">
-          <div class="team-photo">
-            <img src="zK6NVrkb_400x400.jpg" alt="Nyx Draven">
-          </div>
-          <div class="team-name">Nyx Draven</div>
-          <div class="team-role">Manager</div>
-        </a>
-
-        <a class="team-member" href="https://discord.com/users/160986495925092352" target="_blank" rel="noopener" data-tip="Cek sosmednya!">
-          <div class="team-photo">
-            <img src="Screenshot 2026-10-16 163327.png" alt="Napis">
-          </div>
-          <div class="team-name">Napis</div>
-          <div class="team-role">Editor</div>
-        </a>
-
-      </div>
+<div class="page" data-page="team">
+  <section class="block tm">
+    <div class="fa-head">
+      <div class="fa-tag">TEAM ROSTER</div>
+      <h2 class="fa-title" style="margin-bottom:0">Keyla Staff</h2>
     </div>
-
-    <div class="footer-top">
-      <h2>Look around about my social media? Let's connect!</h2>
-      <div class="socials">
-        <a class="social-link" href="https://www.youtube.com/@Keicyla.Icelin" target="_blank" rel="noopener" data-tip="Subscribe dong!">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.95-1.9-.95-2.36-1.01C16.9 2.5 12 2.5 12 2.5h-.01s-4.9 0-8.2.33c-.46.06-1.46.06-2.36 1.01C.73 4.56.5 6.2.5 6.2S.26 8.12.26 10.05v1.8c0 1.93.24 3.85.24 3.85s.23 1.64.94 2.36c.9.95 2.08.92 2.6 1.02 1.89.18 8 .24 8 .24s4.9-.01 8.2-.33c.46-.06 1.46-.06 2.36-1.01.71-.72.94-2.36.94-2.36s.24-1.92.24-3.85v-1.8c0-1.93-.24-3.85-.24-3.85zM9.75 14.85V7.65l6.27 3.6-6.27 3.6z"/></svg>
-          YouTube
-        </a>
-        <a class="social-link" href="https://www.tiktok.com/@keicylaicelin" target="_blank" rel="noopener" data-tip="Follow yuk!">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.6a3.1 3.1 0 1 1-2.2-2.97V9.3a6.3 6.3 0 1 0 5.4 6.24V8.1a7.3 7.3 0 0 0 4.4 1.47V6.3a4.1 4.1 0 0 1-4.4-4.3z"/></svg>
-          TikTok
-        </a>
-        <a class="social-link" href="https://www.instagram.com/keynevr" target="_blank" rel="noopener" data-tip="Follow IG aku!">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.64.42 1.37.47 2.43C21.99 8.94 22 9.28 22 12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.16 1.77 4.9 4.9 0 0 1-1.77 1.16c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.16-1.77a4.9 4.9 0 0 1 1.77-1.16c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.97.04-1.5.2-1.85.34-.47.18-.8.4-1.15.75-.35.35-.57.68-.75 1.15-.14.35-.3.88-.34 1.85C3.81 9 3.8 9.32 3.8 12s.01 3 .06 4.05c.04.97.2 1.5.34 1.85.18.47.4.8.75 1.15.35.35.68.57 1.15.75.35.14.88.3 1.85.34 1.05.05 1.37.06 4.05.06s3-.01 4.05-.06c.97-.04 1.5-.2 1.85-.34.47-.18.8-.4 1.15-.75.35-.35.57-.68.75-1.15.14-.35.3-.88.34-1.85.05-1.05.06-1.37.06-4.05s-.01-3-.06-4.05c-.04-.97-.2-1.5-.34-1.85a3.1 3.1 0 0 0-.75-1.15 3.1 3.1 0 0 0-1.15-.75c-.35-.14-.88-.3-1.85-.34C15 3.81 14.68 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 1 0 10.3 5.15 5.15 0 0 1 0-10.3zm0 1.8a3.35 3.35 0 1 0 0 6.7 3.35 3.35 0 0 0 0-6.7zm5.35-1.99a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
-          Instagram
-        </a>
-        <a class="social-link" href="https://www.facebook.com/keynevr21" target="_blank" rel="noopener" data-tip="Add aku!">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.77l-.44 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
-          Facebook
-        </a>
-        <a class="social-link" href="https://x.com/keynevr" target="_blank" rel="noopener" data-tip="Follow yuk!">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.9 2h6.4l4.4 5.8L18.9 2zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20z"/></svg>
-          Twitter
-        </a>
-        <a class="social-link" href="https://whatsapp.com/channel/0029Vaw0afb2P59kP2F4Es1U" target="_blank" rel="noopener" data-tip="Join saluran!">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7-1.87-1.87-4.35-2.91-7.02-2.91zm0 18.07h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.14.82.84-3.06-.19-.31a8.16 8.16 0 0 1-1.25-4.35c0-4.52 3.68-8.2 8.24-8.2 2.2 0 4.27.86 5.82 2.42a8.15 8.15 0 0 1 2.41 5.8c0 4.52-3.68 8.2-8.24 8.2zm4.51-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.66-1.17.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
-          WhatsApp Saluran
-        </a>
-        <a class="social-link" href="https://discord.gg/9UwsFx39Zs" target="_blank" rel="noopener" data-tip="Gabung server!">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.86-.61 1.24a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.24.08.08 0 0 0-.08-.04c-1.7.29-3.34.8-4.89 1.52a.07.07 0 0 0-.03.03C.53 8.6-.32 12.72.1 16.79a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.04.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1 0-.13c.13-.09.25-.19.37-.28a.07.07 0 0 1 .08 0c3.93 1.8 8.18 1.8 12.06 0a.07.07 0 0 1 .08 0c.12.1.24.2.37.29a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.9a.08.08 0 0 0-.04.11c.36.7.78 1.36 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.04.08.08 0 0 0 .03-.06c.5-4.7-.83-8.79-3.5-12.4a.06.06 0 0 0-.03-.02zM8.02 14.33c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.33-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.33-.95 2.42-2.16 2.42z"/></svg>
-          Discord
-        </a>
-        <a class="social-link" href="https://tako.id/keicylaicelin" target="_blank" rel="noopener" data-tip="Traktir aku~">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10.1-9.1C.36 9.24 1.2 5.9 4.2 4.7c2.1-.85 4.3-.1 5.6 1.5.5.6 1.5.6 2 0 1.3-1.6 3.5-2.35 5.6-1.5 3 1.2 3.84 4.54 2.3 7.2C19.5 16.4 12 21 12 21z"/></svg>
-          Donasi
-        </a>
-      </div>
+    <div class="tm-grid">
+      <a class="tm-card" href="https://www.youtube.com/@setyawang" target="_blank" rel="noopener" style="--i:0" data-tip="Cek sosmednya!">
+        <span class="tm-frame">
+          <span class="tm-photo">
+            <img src="https://i.ibb.co.com/DfDg11Zd/png-simple-bg.webp" alt="Setyawan">
+            <span class="tm-slot">P1</span>
+            <span class="tm-go">SOSMED &#8599;</span>
+          </span>
+        </span>
+        <span class="tm-plate">
+          <span class="tm-name">Setyawan</span>
+          <span class="tm-role"><i>ROLE</i>Animator and Scheduler</span>
+        </span>
+      </a>
+      <a class="tm-card" href="https://x.com/NyxDraven" target="_blank" rel="noopener" style="--i:1" data-tip="Cek sosmednya!">
+        <span class="tm-frame">
+          <span class="tm-photo">
+            <img src="https://i.ibb.co.com/Q3xw5RK7/z-K6-NVrkb-400x400.webp" alt="Nyx Draven">
+            <span class="tm-slot">P2</span>
+            <span class="tm-go">SOSMED &#8599;</span>
+          </span>
+        </span>
+        <span class="tm-plate">
+          <span class="tm-name">Nyx Draven</span>
+          <span class="tm-role"><i>ROLE</i>Manager</span>
+        </span>
+      </a>
+      <a class="tm-card" href="https://web.facebook.com/profile.php?id=61590716965220" target="_blank" rel="noopener" style="--i:2" data-tip="Cek sosmednya!">
+        <span class="tm-frame">
+          <span class="tm-photo">
+            <img src="https://i.ibb.co.com/JF566sSw/776985222-122128627329357232-7204468576431336270-n.jpg" alt="Sebat Sokin">
+            <span class="tm-slot">P3</span>
+            <span class="tm-go">SOSMED &#8599;</span>
+          </span>
+        </span>
+        <span class="tm-plate">
+          <span class="tm-name">Sebat Sokin</span>
+          <span class="tm-role"><i>ROLE</i>Visual Artist</span>
+        </span>
+      </a>
+      <a class="tm-card" href="https://discord.com/users/160986495925092352" target="_blank" rel="noopener" style="--i:3" data-tip="Cek sosmednya!">
+        <span class="tm-frame">
+          <span class="tm-photo">
+            <img src="https://i.ibb.co.com/jZZFB3Mh/Screenshot-2026-10-16-163327.webp" alt="Napis">
+            <span class="tm-slot">P4</span>
+            <span class="tm-go">SOSMED &#8599;</span>
+          </span>
+        </span>
+        <span class="tm-plate">
+          <span class="tm-name">Napis</span>
+          <span class="tm-role"><i>ROLE</i>Editor</span>
+        </span>
+      </a>
     </div>
-    <div class="copyright">© 2026 Made By Keicyla Icelin</div>
-  </div>
+    <p class="tm-hint">Click photo for social media.</p>
+  </section>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="copyright">© 2026 Keicyla Icelin</div>
 </footer>
 
+<div class="fa-lightbox" id="faLightbox" hidden role="dialog" aria-modal="true" aria-label="Tampilan besar fanart">
+  <button type="button" class="fa-lb-btn fa-lb-close" aria-label="Tutup">&#10005;</button>
+  <button type="button" class="fa-lb-btn fa-lb-prev" aria-label="Fanart sebelumnya">&#8249;</button>
+  <div class="fa-lb-frame">
+    <div class="fa-lb-stage">
+      <img class="fa-lb-img" alt="" referrerpolicy="no-referrer" data-no-fallback>
+      <div class="fa-lb-empty" hidden>Gambar belum diisi</div>
+    </div>
+    <div class="fa-lb-cap"><span class="fa-lb-num"></span><span class="fa-lb-by" hidden></span></div>
+  </div>
+  <button type="button" class="fa-lb-btn fa-lb-next" aria-label="Fanart berikutnya">&#8250;</button>
+</div>
+
 <div class="music-widget" id="musicWidget">
-  <audio id="bgMusic" src="Cheerleader  Porter Robinson - Isaa Cover (Rock Version).mp3" loop preload="none"></audio>
+  <audio id="bgMusic" src="Mp3/Cheerleader  Porter Robinson - Isaa Cover (Rock Version).mp3" loop preload="none"></audio>
   <div class="music-info">
     <div class="song-title">Cheerleader (Rock Version)</div>
     <div class="song-artist">by Porter Robinson</div>
@@ -1383,6 +2532,305 @@
   })();
 
   (function(){
+    var root = document.documentElement;
+    var navLinks = document.querySelectorAll('nav.nav-links a');
+    var baseTitle = document.title;
+    var routeStyle = document.getElementById('routeStyle');
+    var labels = { home:'Home', character:'Character', fanart:'Fanart', commission:'Commission', team:'Keyla Team' };
+    var alias = { tentang:'home', konten:'home', kontak:'home', portofolio:'commission', komisi:'commission' }; 
+    var shown = '';
+    var NAME = /^[a-z0-9][a-z0-9-]*$/;
+
+    function pageEl(name){
+      return NAME.test(name) ? document.querySelector('.page[data-page="' + name + '"]') : null;
+    }
+    function pageFromHash(){
+      var h = (location.hash || '').replace(/^#\/?/, '').toLowerCase();
+      if (typeof alias[h] === 'string') h = alias[h];
+      return pageEl(h) ? h : 'home';
+    }
+
+    function render(name, force){
+      if (name === shown && !force) return;
+      var from = pageEl(shown);
+      var cameFromProfile = !!from && from.getAttribute('data-parent') === 'character';
+      shown = name;
+      var el = pageEl(name);
+      var parent = (el && el.getAttribute('data-parent')) || name;
+      root.setAttribute('data-page', name);
+      if (routeStyle) routeStyle.textContent = '.page{display:none}.page[data-page="' + name + '"]{display:block}';
+      navLinks.forEach(function(a){
+        if (a.getAttribute('href') === '#' + parent) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+      var title = (el && el.getAttribute('data-title')) || labels[name];
+      document.title = (name === 'home' || !title) ? baseTitle : title + ' \u00b7 ' + baseTitle;
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      window.dispatchEvent(new Event('pagechange'));
+      if (cameFromProfile && name === 'character'){
+        var sel = document.getElementById('rpSelect');
+        if (sel) sel.scrollIntoView({ block: 'center', behavior: 'instant' });
+      }
+    }
+
+    function go(name){
+      render(name, true);
+      try { if (location.hash !== '#' + name) location.hash = '#' + name; } catch (e) {}
+    }
+
+    document.addEventListener('click', function(e){
+      var t = e.target;
+      if (t && t.nodeType !== 1) t = t.parentElement;
+      var a = t && t.closest ? t.closest('a[href^="#"]') : null;
+      if (!a) return;
+      var name = a.getAttribute('href').slice(1).toLowerCase();
+      if (!pageEl(name)) return;
+      e.preventDefault();
+      go(name);
+    });
+
+    function anchorScroll(){
+      var raw = (location.hash || '').replace(/^#\/?/, '').toLowerCase();
+      if (!raw || raw === shown) return;
+      var t = document.getElementById(raw);
+      var pg = t && t.closest ? t.closest('.page') : null;
+      if (pg && pg.getAttribute('data-page') === shown) t.scrollIntoView({ block: 'start', behavior: 'instant' });
+    }
+
+    window.addEventListener('hashchange', function(){ render(pageFromHash()); anchorScroll(); });
+    render(pageFromHash());
+    anchorScroll();
+  })();
+
+  (function(){
+    function setup(cfg){
+      var track = cfg.track, slides = cfg.slides, n = slides.length;
+      if (!track || !n) return;
+      var dotsWrap = cfg.dotsWrap, gotos = cfg.gotos || [], counter = cfg.counter;
+      var index = 0, dots = [];
+
+      if (dotsWrap){
+        for (var i = 0; i < n; i++){
+          (function(i){
+            var d = document.createElement('button');
+            d.type = 'button';
+            d.className = cfg.dotClass;
+            d.setAttribute('aria-label', 'Foto ' + (i + 1));
+            d.addEventListener('click', function(){ goTo(i); });
+            dotsWrap.appendChild(d);
+            dots.push(d);
+          })(i);
+        }
+      }
+
+      function paint(){
+        dots.forEach(function(d, i){ d.classList.toggle('active', i === index); });
+        gotos.forEach(function(g){
+          g.classList.toggle('active', Number(g.getAttribute('data-goto')) === index);
+        });
+        if (counter) counter.textContent = (index + 1) + ' / ' + n;
+      }
+
+      function goTo(i){
+        i = (i + n) % n;
+        track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+        index = i;
+        paint();
+      }
+
+      var raf = 0;
+      function sync(){
+        var w = track.clientWidth;
+        if (!w) return;
+        var i = Math.max(0, Math.min(n - 1, Math.round(track.scrollLeft / w)));
+        if (i !== index){ index = i; paint(); }
+      }
+      track.addEventListener('scroll', function(){
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(sync);
+      }, { passive: true });
+
+      window.addEventListener('resize', function(){
+        var w = track.clientWidth;
+        if (w) track.scrollTo({ left: index * w, behavior: 'auto' });
+      });
+      window.addEventListener('pagechange', function(){ sync(); paint(); });
+
+      if (cfg.prev) cfg.prev.addEventListener('click', function(){ goTo(index - 1); });
+      if (cfg.next) cfg.next.addEventListener('click', function(){ goTo(index + 1); });
+      gotos.forEach(function(g){
+        g.addEventListener('click', function(){ goTo(Number(g.getAttribute('data-goto'))); });
+      });
+      paint();
+    }
+
+    document.querySelectorAll('[data-pslider]').forEach(function(root){
+      setup({
+        track: root.querySelector('.pslider-track'),
+        slides: root.querySelectorAll('.pslide'),
+        dotsWrap: root.querySelector('.pslider-dots'),
+        dotClass: 'pslider-dot',
+        prev: root.querySelector('.pslider-btn.prev'),
+        next: root.querySelector('.pslider-btn.next')
+      });
+    });
+  })();
+
+  (function(){
+    document.querySelectorAll('[data-select]').forEach(function(root){
+      var track = root.querySelector('.rs-track');
+      var cards = root.querySelectorAll('.rs-card');
+      var prev = root.querySelector('.cslider-side.prev');
+      var next = root.querySelector('.cslider-side.next');
+      var scope = root.closest('.rp-panel') || root;
+      var counter = scope.querySelector('[data-counter]');
+      var n = cards.length;
+      var index = 0;
+      if (!track || !n) return;
+
+      function paint(){
+        cards.forEach(function(c, i){ c.classList.toggle('is-active', i === index); });
+        if (counter) counter.textContent = (index + 1) + ' / ' + n;
+      }
+      function target(i){
+        var c = cards[i];
+        return c.offsetLeft + c.offsetWidth / 2 - track.clientWidth / 2;
+      }
+      function goTo(i, instant){
+        i = (i + n) % n;
+        index = i;
+        paint();
+        if (track.clientWidth) track.scrollTo({ left: target(i), behavior: instant ? 'auto' : 'smooth' });
+      }
+
+      var raf = 0;
+      function sync(){
+        var w = track.clientWidth;
+        if (!w) return;
+        var mid = track.scrollLeft + w / 2, best = 0, bestD = Infinity;
+        cards.forEach(function(c, i){
+          var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+          if (d < bestD){ bestD = d; best = i; }
+        });
+        if (best !== index){ index = best; paint(); }
+      }
+      track.addEventListener('scroll', function(){
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(sync);
+      }, { passive: true });
+
+      if (prev) prev.addEventListener('click', function(){ goTo(index - 1); });
+      if (next) next.addEventListener('click', function(){ goTo(index + 1); });
+      track.addEventListener('keydown', function(e){
+        if (e.key === 'ArrowLeft'){ e.preventDefault(); goTo(index - 1); }
+        else if (e.key === 'ArrowRight'){ e.preventDefault(); goTo(index + 1); }
+      });
+
+      window.addEventListener('resize', function(){ goTo(index, true); });
+      window.addEventListener('pagechange', function(){ goTo(index, true); });
+      paint();
+      goTo(0, true);
+    });
+  })();
+
+  (function(){
+    var cards = document.querySelectorAll('.fa-card');
+    var lb = document.getElementById('faLightbox');
+    if (!cards.length || !lb) return;
+    var img = lb.querySelector('.fa-lb-img');
+    var empty = lb.querySelector('.fa-lb-empty');
+    var num = lb.querySelector('.fa-lb-num');
+    var byEl = lb.querySelector('.fa-lb-by');
+    var btnClose = lb.querySelector('.fa-lb-close');
+    var btnPrev = lb.querySelector('.fa-lb-prev');
+    var btnNext = lb.querySelector('.fa-lb-next');
+    var n = cards.length, index = 0, opener = null;
+
+    var c1 = document.getElementById('faCount'), c2 = document.getElementById('faTotal');
+    if (c1) c1.textContent = n;
+    if (c2) c2.textContent = n;
+
+    function pad(v){ return v < 10 ? '0' + v : String(v); }
+
+    function show(i){
+      index = (i + n) % n;
+      var card = cards[index];
+      var im = card.querySelector('img');
+      var box = card.querySelector('.fa-img');
+      var missing = !im || (box && box.classList.contains('img-missing'));
+      if (missing){
+        img.hidden = true;
+        img.removeAttribute('src');
+        empty.hidden = false;
+      } else {
+        empty.hidden = true;
+        img.hidden = false;
+        img.style.display = '';
+        img.src = im.currentSrc || im.src;
+        img.alt = im.alt || '';
+      }
+      num.textContent = 'ART ' + pad(index + 1) + ' / ' + pad(n);
+      var who = card.getAttribute('data-by') || '';
+      byEl.textContent = who ? 'by ' + who : '';
+      byEl.hidden = !who;
+    }
+    function open(i, from){
+      opener = from || null;
+      lb.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      show(i);
+      btnClose.focus();
+    }
+    function close(){
+      if (lb.hidden) return;
+      lb.hidden = true;
+      document.documentElement.style.overflow = '';
+      img.removeAttribute('src');
+      if (opener && opener.focus) opener.focus();
+    }
+
+    img.addEventListener('error', function(){
+      if (!img.getAttribute('src')) return;
+      img.hidden = true;
+      empty.hidden = false;
+    });
+
+    cards.forEach(function(card, i){
+      card.addEventListener('click', function(){ open(i, card); });
+    });
+    btnClose.addEventListener('click', close);
+    btnPrev.addEventListener('click', function(){ show(index - 1); });
+    btnNext.addEventListener('click', function(){ show(index + 1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+
+    document.addEventListener('keydown', function(e){
+      if (lb.hidden) return;
+      if (e.key === 'Escape'){ close(); }
+      else if (e.key === 'ArrowLeft'){ show(index - 1); }
+      else if (e.key === 'ArrowRight'){ show(index + 1); }
+      else if (e.key === 'Tab'){
+        var f = [btnClose, btnPrev, btnNext];
+        var at = f.indexOf(document.activeElement);
+        e.preventDefault();
+        f[(at + (e.shiftKey ? f.length - 1 : 1)) % f.length].focus();
+      }
+    });
+
+    var sx = 0, sy = 0;
+    lb.addEventListener('touchstart', function(e){
+      if (e.touches.length !== 1) return;
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+    }, { passive: true });
+    lb.addEventListener('touchend', function(e){
+      var t = e.changedTouches[0];
+      var dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(index + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    window.addEventListener('pagechange', close);
+  })();
+
+  (function(){
     const toggle = document.getElementById('navToggle');
     const nav = document.getElementById('navLinks');
     if (!toggle || !nav) return;
@@ -1421,6 +2869,7 @@
       if (img.parentElement) img.parentElement.classList.add('img-missing');
     }
     document.querySelectorAll('img').forEach(function(img){
+      if (img.hasAttribute('data-no-fallback')) return;
       img.addEventListener('error', function(){ handleMissing(img); });
       if (img.complete && img.naturalWidth === 0) handleMissing(img);
     });
@@ -1467,7 +2916,7 @@
     const label = document.getElementById('priceLabel');
     const btnLeft = document.getElementById('priceLeft');
     const btnRight = document.getElementById('priceRight');
-    const modes = ['Local Price', 'Internasional Price'];
+    const modes = ['Harga Lokal', 'Harga Internasional'];
     let idx = 0;
 
     function render(){
